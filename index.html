@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mr Spiros Handmade Yiros — Nobby Beach | Hand-rolled pita, lamb on the spit</title>
+<meta name="description" content="Hidden at the back of The Oxley 1823, Nobby Beach. Lamb and chicken turned slowly over coals. Pita rolled by hand every morning. Chips cut by hand, cooked three times. No shortcuts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MR SPIROS HANDMADE YIROS
+   Design tokens
+   Palette derived from the brief: interior walls "the colour of
+   the Aegean sea" + the gold of lamb turning over coals.
+   ============================================================ */
+:root{
+  --deep:#04283A;      /* near-black teal — deep water */
+  --aegean:#0A5170;    /* the wall colour */
+  --shallow:#3D92B5;   /* shallow water */
+  --foam:#EDF3F2;      /* cool off-white */
+  --gold:#E2A32B;      /* golden lamb / ember */
+  --gold-hot:#F2BE55;
+  --coal:#1C1512;      /* charcoal */
+  --pita:#E8D9BC;      /* fresh dough */
+  --line:rgba(10,81,112,.18);
+  --line-dark:rgba(237,243,242,.16);
+
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --pad:clamp(20px,5vw,72px);
+  --max:1240px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;
+  background:var(--foam);
+  color:var(--deep);
+  font-family:var(--body);
+  font-size:clamp(16px,1.05vw,17.5px);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- shared type ---------- */
+.h-xl,.h-lg,.h-md,.h-sm{
+  font-family:var(--display);
+  font-variation-settings:"SOFT" 0,"WONK" 1;
+  font-weight:700;
+  line-height:.98;
+  letter-spacing:-.022em;
+  margin:0;
+}
+.h-xl{font-size:clamp(2.6rem,7.4vw,5.6rem)}
+.h-lg{font-size:clamp(2.1rem,5vw,3.9rem);line-height:1.02}
+.h-md{font-size:clamp(1.5rem,2.8vw,2.35rem);line-height:1.08}
+.h-sm{font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.15;letter-spacing:-.012em}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--shallow);
+  margin:0 0 18px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);flex:none}
+.lede{font-size:clamp(1.05rem,1.45vw,1.24rem);line-height:1.55}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+.sect{padding-block:clamp(64px,8.5vw,124px)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--body);font-weight:700;font-size:.95rem;
+  letter-spacing:.005em;
+  padding:16px 26px;border-radius:2px;border:2px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:transform .18s ease,background .18s ease,color .18s ease,box-shadow .18s ease;
+}
+.btn-gold{background:var(--gold);color:var(--coal);box-shadow:0 0 0 0 rgba(226,163,43,.5)}
+.btn-gold:hover{background:var(--gold-hot);transform:translateY(-2px);box-shadow:0 10px 26px -12px rgba(226,163,43,.9)}
+.btn-ghost{border-color:currentColor;background:transparent}
+.btn-ghost:hover{background:var(--deep);color:var(--foam);border-color:var(--deep);transform:translateY(-2px)}
+.on-dark .btn-ghost:hover{background:var(--foam);color:var(--deep);border-color:var(--foam)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(4,40,58,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line-dark);
+  color:var(--foam);
+}
+.nav-in{
+  max-width:var(--max);margin:0 auto;padding:12px var(--pad);
+  display:flex;align-items:center;gap:20px;
+}
+.brand{display:flex;flex-direction:column;line-height:1;text-decoration:none;margin-right:auto}
+.brand b{font-family:var(--display);font-variation-settings:"WONK" 1;font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
+.brand span{font-family:var(--mono);font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:5px}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{
+  text-decoration:none;font-size:.83rem;font-weight:500;letter-spacing:.02em;
+  opacity:.82;padding:4px 0;border-bottom:1px solid transparent;transition:.16s;
+}
+.nav-links a:hover{opacity:1;border-bottom-color:var(--gold)}
+.nav .btn{padding:11px 18px;font-size:.8rem}
+.burger{display:none;background:none;border:1px solid var(--line-dark);color:inherit;border-radius:2px;padding:9px 12px;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;cursor:pointer}
+@media(max-width:940px){
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--deep);flex-direction:column;align-items:stretch;gap:0;
+    padding:8px var(--pad) 22px;border-bottom:1px solid var(--line-dark);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line-dark);font-size:.98rem;opacity:1}
+  .burger{display:block}
+  .nav-cta{display:none}
+}
+
+/* ============================================================
+   1+2+3. HERO — problem/solution headline, agitating copy, image
+   ============================================================ */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(120% 90% at 88% 0%,rgba(61,146,181,.20),transparent 58%),
+    radial-gradient(90% 70% at 8% 100%,rgba(61,146,181,.24),transparent 60%),
+    var(--deep);
+  color:var(--foam);
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:auto 0 -1px 0;height:120px;
+  background:linear-gradient(to bottom,transparent,rgba(226,163,43,.07));
+  pointer-events:none;
+}
+.hero-grid{
+  max-width:var(--max);margin:0 auto;padding:clamp(46px,6.6vw,84px) var(--pad) clamp(56px,6vw,80px);
+  display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,4.5vw,68px);align-items:start;
+}
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr}}
+.hero .eyebrow{color:var(--gold)}
+.hero .eyebrow::before{background:var(--gold)}
+.kicker{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(1.05rem,1.9vw,1.42rem);color:var(--gold);
+  margin:20px 0 0;line-height:1.3;
+}
+.hero-copy{margin:22px 0 0;max-width:56ch;color:rgba(237,243,242,.86);font-size:clamp(1.02rem,1.35vw,1.16rem)}
+.hero-copy strong{color:var(--foam)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.microcta{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:rgba(237,243,242,.55);margin:14px 0 0}
+
+.trustbar{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:38px;
+  border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
+}
+.trust{padding:16px 22px 16px 0;margin-right:22px;border-right:1px solid var(--line-dark)}
+.trust:last-child{border-right:0}
+.trust b{display:block;font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1}
+.trust span{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,243,242,.5)}
+.stars{color:var(--gold);letter-spacing:.08em}
+
+/* ---------- signature: the hidden-door floorplan ---------- */
+.plan-card{
+  background:rgba(237,243,242,.045);
+  border:1px solid var(--line-dark);
+  border-radius:3px;padding:22px 22px 18px;
+  position:relative;
+}
+.plan-card h3{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 4px;font-weight:500;
+}
+.plan-card p.plan-sub{margin:0 0 14px;font-size:.85rem;color:rgba(237,243,242,.6)}
+.plan svg{width:100%;height:auto;display:block}
+.plan-legend{
+  display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:14px;
+  border-top:1px solid var(--line-dark);
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,243,242,.55);
+}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.dot-gold{background:var(--gold)}
+.dot-grey{background:rgba(237,243,242,.35)}
+
+.path-anim{stroke-dasharray:7 7;stroke-dashoffset:340}
+.plan.go .path-anim{animation:draw 2.3s cubic-bezier(.5,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pulse{transform-origin:center;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.25;r:26}50%{opacity:.06;r:34}}
+@media (prefers-reduced-motion:reduce){
+  .path-anim{stroke-dashoffset:0;animation:none!important}
+  .pulse{animation:none;opacity:.18}
+}
+
+/* ---------- 4. welcome video ---------- */
+.videoslot{
+  position:relative;aspect-ratio:16/10;border-radius:3px;overflow:hidden;
+  border:1px solid var(--line-dark);
+  background:
+    radial-gradient(70% 90% at 50% 110%,rgba(226,163,43,.3),transparent 62%),
+    linear-gradient(150deg,var(--aegean),var(--coal));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  text-align:center;padding:20px;cursor:pointer;text-decoration:none;color:var(--foam);
+  transition:.2s;
+}
+.videoslot:hover{border-color:var(--gold)}
+.videoslot:hover .play{transform:scale(1.08);background:var(--gold-hot)}
+.play{
+  width:60px;height:60px;border-radius:50%;background:var(--gold);
+  display:grid;place-items:center;transition:.2s;flex:none;
+}
+.play svg{width:20px;height:20px;margin-left:3px;fill:var(--coal)}
+.videoslot b{font-family:var(--display);font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
+.videoslot small{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,243,242,.6)}
+.hero-video{margin-top:20px}
+
+/* ============================================================
+   2. THE PROBLEM — agitate
+   ============================================================ */
+.compare{background:var(--coal);color:var(--foam)}
+.compare .h-lg{max-width:20ch}
+.compare-intro{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,60px);align-items:end;margin-bottom:clamp(34px,4vw,54px)}
+@media(max-width:880px){.compare-intro{grid-template-columns:1fr;align-items:start}}
+.compare-intro p{margin:0;color:rgba(237,243,242,.72);max-width:52ch}
+
+.table{border-top:1px solid var(--line-dark)}
+.row{
+  display:grid;grid-template-columns:120px 1fr 1fr;gap:clamp(16px,3vw,44px);
+  padding:clamp(18px,2.4vw,26px) 0;border-bottom:1px solid var(--line-dark);
+  align-items:start;
+}
+.row-h{padding-block:14px}
+.row-h .cell{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase}
+.rlabel{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,243,242,.42);padding-top:3px}
+.cell-bad{color:rgba(237,243,242,.48)}
+.cell-bad b{display:block;font-family:var(--display);font-weight:600;font-size:1.02rem;margin-bottom:4px;color:rgba(237,243,242,.62)}
+.cell-good b{display:block;font-family:var(--display);font-weight:700;font-size:1.08rem;margin-bottom:4px;color:var(--gold)}
+.cell-good{color:rgba(237,243,242,.9)}
+.row-h .cell-bad{color:rgba(237,243,242,.42)}
+.row-h .cell-good{color:var(--gold)}
+@media(max-width:760px){
+  .row{grid-template-columns:1fr;gap:14px;padding-block:22px}
+  .row-h{display:none}
+  .cell-bad::before{content:"The usual — ";font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,243,242,.35)}
+  .cell-good::before{content:"Mr Spiros — ";font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+}
+.compare-out{
+  margin-top:clamp(32px,4vw,50px);padding:clamp(24px,3vw,36px);
+  border:1px solid var(--gold);border-radius:3px;
+  background:linear-gradient(120deg,rgba(226,163,43,.1),transparent 70%);
+  display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:space-between;
+}
+.compare-out p{margin:0;font-family:var(--display);font-size:clamp(1.2rem,2.1vw,1.7rem);font-weight:600;line-height:1.2;max-width:26ch;font-variation-settings:"WONK" 1}
+
+/* ============================================================
+   5. BENEFITS
+   ============================================================ */
+.benefits{background:var(--foam)}
+.bhead{max-width:60ch;margin-bottom:clamp(34px,4vw,56px)}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.bcard{background:var(--foam);padding:clamp(24px,2.6vw,34px);transition:background .22s ease}
+.bcard:hover{background:#fff}
+@media(max-width:1040px){.bgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:660px){.bgrid{grid-template-columns:1fr}}
+.bnum{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--shallow);display:block;margin-bottom:16px}
+.bcard h3{font-family:var(--display);font-variation-settings:"WONK" 1;font-weight:700;font-size:1.24rem;line-height:1.12;margin:0 0 10px;letter-spacing:-.015em}
+.bcard p{margin:0;font-size:.94rem;color:rgba(4,40,58,.75)}
+
+/* ============================================================
+   MENU
+   ============================================================ */
+.menu{background:var(--aegean);color:var(--foam);position:relative}
+.menu .eyebrow{color:var(--gold-hot)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,66px);margin-top:clamp(32px,4vw,50px)}
+@media(max-width:860px){.menu-grid{grid-template-columns:1fr}}
+.mgroup+.mgroup{margin-top:38px}
+.mgroup h3{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-hot);margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid rgba(237,243,242,.22);font-weight:500;
+}
+.mitem{padding:13px 0;border-bottom:1px solid rgba(237,243,242,.11)}
+.mitem:last-child{border-bottom:0}
+.mitem b{font-family:var(--display);font-weight:600;font-size:1.1rem;letter-spacing:-.01em;display:block}
+.mitem > span{display:block;font-size:.88rem;color:rgba(237,243,242,.68);margin-top:3px}
+.tag{
+  display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--gold);color:var(--coal);padding:3px 8px;border-radius:2px;margin-left:8px;vertical-align:2px;font-weight:500;
+}
+.special{
+  margin-top:clamp(34px,4vw,48px);padding:clamp(22px,2.6vw,32px);
+  border:2px dashed var(--gold-hot);border-radius:3px;
+  display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+}
+.special b{font-family:var(--display);font-size:clamp(1.35rem,2.6vw,2rem);font-weight:700;display:block;line-height:1.05;font-variation-settings:"WONK" 1}
+.special span{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hot);display:block;margin-top:8px}
+
+/* ============================================================
+   SUNDAY LAMB — scarcity + capture #2
+   ============================================================ */
+.sunday{background:var(--coal);color:var(--foam);position:relative;overflow:hidden}
+.sunday::before{
+  content:"";position:absolute;left:50%;top:-30%;width:min(760px,120vw);aspect-ratio:1;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(226,163,43,.16),transparent 62%);pointer-events:none;
+}
+.sunday-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4.5vw,64px);align-items:center}
+@media(max-width:900px){.sunday-in{grid-template-columns:1fr}}
+.sunday p{color:rgba(237,243,242,.78)}
+.scarcity{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--gold);display:inline-block;padding:7px 12px;border-radius:2px;margin-bottom:20px;
+}
+
+/* ---------- 6. THE DOCKET (data capture) ---------- */
+.docket{
+  background:var(--pita);color:var(--coal);border-radius:3px;padding:30px 28px 26px;
+  position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.75);
+  font-family:var(--mono);
+}
+.docket::before,.docket::after{
+  content:"";position:absolute;left:0;right:0;height:12px;
+  background-image:radial-gradient(circle at 6px 6px,transparent 5px,var(--pita) 5.5px);
+  background-size:12px 12px;
+}
+.docket::before{top:-11px;transform:scaleY(-1)}
+.docket::after{bottom:-11px}
+.dk-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,21,18,.55);border-bottom:1px dashed rgba(28,21,18,.35);padding-bottom:10px;margin-bottom:18px}
+.docket h3{font-family:var(--display);font-variation-settings:"WONK" 1;font-size:clamp(1.35rem,2.4vw,1.75rem);line-height:1.06;margin:0 0 10px;font-weight:700;letter-spacing:-.02em}
+.dk-list{list-style:none;margin:0 0 20px;padding:0;font-size:.82rem;line-height:1.5}
+.dk-list li{padding-left:22px;position:relative;margin-bottom:8px}
+.dk-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--aegean);font-weight:700}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,21,18,.6);margin-bottom:5px}
+.field input{
+  width:100%;padding:12px 13px;border:1px solid rgba(28,21,18,.28);border-radius:2px;
+  background:rgba(255,255,255,.65);font-family:var(--mono);font-size:.92rem;color:var(--coal);
+}
+.field input:focus{outline:2px solid var(--aegean);outline-offset:1px;background:#fff}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.field-row{grid-template-columns:1fr}}
+.docket .btn{width:100%;margin-top:8px}
+.dk-fine{font-size:.6rem;line-height:1.5;color:rgba(28,21,18,.55);margin:12px 0 0;text-align:center;letter-spacing:.02em}
+.dk-err{color:#9B2C15;font-size:.68rem;margin:8px 0 0;min-height:1em;letter-spacing:.04em}
+
+.dk-done{text-align:center;padding:6px 0 2px}
+.dk-done .code{
+  font-size:clamp(1.2rem,3vw,1.7rem);letter-spacing:.14em;font-weight:500;color:var(--coal);
+  border:2px dashed var(--aegean);padding:14px 10px;border-radius:2px;margin:16px 0 14px;background:rgba(255,255,255,.5);
+}
+.dk-done h3{margin-bottom:8px}
+.dk-done p{font-size:.8rem;line-height:1.55;color:rgba(28,21,18,.7);margin:0 0 6px}
+
+/* ============================================================
+   7. TESTIMONIALS
+   ============================================================ */
+.social{background:var(--foam)}
+.bigquote{
+  font-family:var(--display);font-variation-settings:"WONK" 1;
+  font-size:clamp(1.6rem,4.1vw,3.05rem);line-height:1.08;letter-spacing:-.025em;font-weight:600;
+  margin:0;max-width:19ch;
+}
+.bigquote em{font-style:italic;color:var(--aegean)}
+.quote-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,60px);align-items:center}
+@media(max-width:900px){.quote-grid{grid-template-columns:1fr}}
+.attrib{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--shallow);margin-top:22px}
+.vidwall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(36px,4vw,54px)}
+@media(max-width:700px){.vidwall{grid-template-columns:1fr}}
+.vidwall .videoslot{aspect-ratio:4/5;border-color:var(--line)}
+.vidwall .videoslot b{font-size:.98rem}
+.vidwall .play{width:48px;height:48px}
+.vidwall .play svg{width:16px;height:16px}
+
+/* ============================================================
+   8. MORE REASONS
+   ============================================================ */
+.reasons{background:var(--deep);color:var(--foam)}
+.reasons .eyebrow{color:var(--gold)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:clamp(30px,4vw,46px)}
+.rcard{background:var(--deep);padding:clamp(24px,2.6vw,32px)}
+.rcard h3{font-family:var(--display);font-variation-settings:"WONK" 1;font-size:1.15rem;font-weight:700;margin:0 0 10px;letter-spacing:-.012em}
+.rcard p{margin:0;font-size:.92rem;color:rgba(237,243,242,.7)}
+.press{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,3vw,40px)}
+.press span{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--line-dark);padding:9px 14px;border-radius:2px;color:rgba(237,243,242,.65);
+}
+
+/* ============================================================
+   FIND THE DOOR
+   ============================================================ */
+.find{background:var(--foam)}
+.find-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,4.5vw,64px);align-items:start}
+@media(max-width:920px){.find-grid{grid-template-columns:1fr}}
+.info{border-top:1px solid var(--line);margin-top:26px}
+.info div{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.info dt,.info b.k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--shallow);font-weight:400}
+.info .v{font-size:.98rem}
+.info .v a{color:var(--aegean)}
+@media(max-width:520px){.info div{grid-template-columns:1fr;gap:5px}}
+.find .plan-card{background:#fff;border-color:var(--line)}
+.find .plan-card h3{color:var(--aegean)}
+.find .plan-card p.plan-sub{color:rgba(4,40,58,.6)}
+.find .plan-legend{color:rgba(4,40,58,.6);border-top-color:var(--line)}
+.find .dot-grey{background:rgba(4,40,58,.3)}
+
+/* ============================================================
+   FOOTER + sticky mobile bar
+   ============================================================ */
+.foot{background:var(--coal);color:rgba(237,243,242,.65);padding:clamp(46px,5vw,68px) 0 130px;font-size:.86rem}
+.foot-in{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
+.foot a{color:var(--gold);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot-links{display:flex;flex-direction:column;gap:9px}
+.foot .brand b{font-size:1.3rem}
+.disclaim{margin-top:34px;padding-top:20px;border-top:1px solid rgba(237,243,242,.12);font-size:.72rem;color:rgba(237,243,242,.42);max-width:70ch}
+
+.stickybar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:rgba(28,21,18,.96);backdrop-filter:blur(10px);
+  border-top:1px solid rgba(226,163,43,.35);
+  padding:11px var(--pad);display:flex;gap:10px;align-items:center;
+}
+.stickybar .sb-text{flex:1;min-width:0}
+.stickybar b{display:block;font-family:var(--display);font-size:.95rem;color:var(--foam);line-height:1.1;font-weight:600}
+.stickybar small{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.stickybar .btn{padding:12px 18px;font-size:.82rem;flex:none}
+@media(min-width:900px){.stickybar{display:none}.foot{padding-bottom:clamp(46px,5vw,68px)}}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <b>Mr Spiros</b>
+      <span>Handmade Yiros · Nobby Beach</span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">MENU</button>
+    <div class="nav-links" id="navlinks">
+      <a href="#difference">The difference</a>
+      <a href="#menu">Menu</a>
+      <a href="#sunday">Sunday lamb</a>
+      <a href="#story">The story</a>
+      <a href="#find">Find the door</a>
+    </div>
+    <!-- ORDER LINK: replace with the exact Uber Eats store URL -->
+    <a class="btn btn-gold nav-cta" href="https://www.ubereats.com/" target="_blank" rel="noopener">Order now</a>
+  </div>
+</nav>
+
+<!-- ==================== 1–4. HERO ==================== -->
+<header class="hero" id="top">
+  <div class="hero-grid">
+
+    <div>
+      <p class="eyebrow">Nobby Beach · back of The Oxley 1823</p>
+
+      <h1 class="h-xl">You've walked<br>past it a<br>hundred times.</h1>
+
+      <p class="kicker">The Gold Coast's worst-signposted lamb.</p>
+
+      <p class="hero-copy">
+        Right at the back of the Atrium — past the coffee, past the deli, past the gelato — there's
+        a spit turning lamb and chicken over coals, and a bloke rolling pita by hand every single morning.
+        <strong>No frozen meat cone. No pita off a truck. No shortcuts.</strong>
+        You just have to know the door's there.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#docket">Claim your free hand-cut chips</a>
+        <a class="btn btn-ghost" href="#difference" style="color:var(--foam)">See what's different</a>
+      </div>
+      <p class="microcta">Takes 20 seconds · First visit only · Nothing posted to you</p>
+
+      <div class="trustbar">
+        <div class="trust"><b class="stars">★★★★</b><span>4.0 on Google</span></div>
+        <div class="trust"><b>46</b><span>Reviews &amp; counting</span></div>
+        <div class="trust"><b>2</b><span>Proteins. That's it.</span></div>
+        <div class="trust"><b>0</b><span>Shortcuts</span></div>
+      </div>
+    </div>
+
+    <div>
+      <!-- SIGNATURE ELEMENT: the hidden-door floorplan -->
+      <div class="plan-card">
+        <h3>How to actually find us</h3>
+        <p class="plan-sub">Everyone stops at the front. Keep walking.</p>
+        <div class="plan" id="plan1">
+          <svg viewBox="0 0 440 372" role="img" aria-label="Floorplan of The Oxley 1823. From Lavarack Road you enter the front of the building and walk the length of the Atrium to the rear, where Mr Spiros is.">
+            <g fill="none" stroke="rgba(237,243,242,.28)" stroke-width="1.4" stroke-linecap="round">
+              <path d="M30 24 H410 M410 24 V300 M30 24 V300" stroke="rgba(237,243,242,.45)" stroke-width="2"/>
+              <path d="M30 300 H175 M265 300 H410" stroke="rgba(237,243,242,.45)" stroke-width="2"/>
+              <path d="M30 92 H175 M30 160 H175 M30 228 H175"/>
+              <path d="M265 92 H410 M265 160 H410 M265 228 H410"/>
+              <path d="M175 82 V300 M265 82 V300" stroke-dasharray="3 6"/>
+            </g>
+
+            <g fill="rgba(237,243,242,.4)" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.4">
+              <text x="44" y="62">COFFEE</text>
+              <text x="44" y="130">DELI</text>
+              <text x="44" y="198">GELATO</text>
+              <text x="44" y="266">BAR</text>
+              <text x="300" y="62">GROCER</text>
+              <text x="300" y="130">RETAIL</text>
+              <text x="300" y="198">RETAIL</text>
+              <text x="300" y="266">DINING</text>
+            </g>
+            <text x="196" y="196" text-anchor="middle" fill="rgba(237,243,242,.3)" font-family="DM Mono, monospace" font-size="9.5" letter-spacing="4" transform="rotate(-90 196 196)">THE ATRIUM</text>
+
+            <line x1="0" y1="316" x2="440" y2="316" stroke="rgba(237,243,242,.3)" stroke-width="1"/>
+            <rect x="0" y="322" width="440" height="32" fill="rgba(237,243,242,.07)"/>
+            <line x1="0" y1="338" x2="440" y2="338" stroke="rgba(237,243,242,.3)" stroke-width="1.2" stroke-dasharray="14 12"/>
+            <text x="220" y="368" text-anchor="middle" fill="rgba(237,243,242,.45)" font-family="DM Mono, monospace" font-size="10" letter-spacing="2.6">LAVARACK RD</text>
+
+            <path class="path-anim" d="M220 310 V88" stroke="var(--gold)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+
+            <circle cx="220" cy="310" r="5.5" fill="rgba(237,243,242,.75)"/>
+            <text x="234" y="314" fill="rgba(237,243,242,.6)" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.4">YOU'RE HERE</text>
+
+            <circle class="pulse" cx="220" cy="57" r="26" fill="var(--gold)" opacity=".22"/>
+            <rect x="152" y="32" width="136" height="50" rx="2" fill="var(--gold)"/>
+            <text x="220" y="54" text-anchor="middle" fill="#1C1512" font-family="DM Mono, monospace" font-size="10" font-weight="500" letter-spacing="1.2">MR SPIROS</text>
+            <text x="220" y="69" text-anchor="middle" fill="rgba(28,21,18,.7)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.2">REAR OF THE ATRIUM</text>
+          </svg>
+        </div>
+        <div class="plan-legend">
+          <span><i class="dot dot-gold"></i>Us</span>
+          <span><i class="dot dot-grey"></i>Everyone you'll walk past</span>
+        </div>
+      </div>
+
+      <!-- 4. WELCOME VIDEO
+           SWAP: replace this <a> with an <iframe> or <video> once Peter's
+           60-second welcome video is shot. Keep the 16:10 ratio. -->
+      <a class="videoslot hero-video" href="#docket" aria-label="Welcome video — 60 seconds with Peter">
+        <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <b>“Here's why there's no shortcut.”</b>
+        <small>60 seconds with Peter · video slot</small>
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ==================== 2. PROBLEM / AGITATE ==================== -->
+<section class="sect compare" id="difference">
+  <div class="wrap">
+    <div class="compare-intro rv">
+      <div>
+        <p class="eyebrow" style="color:var(--gold)">The bit nobody tells you</p>
+        <h2 class="h-lg">Most yiros is assembled. Ours is made.</h2>
+      </div>
+      <p>
+        You've had the 1am servo version. The food-court version. The one where the meat arrives
+        frozen, pre-formed and pressed into a cone by a machine in a factory, then spun under an
+        electric element until it's grey at the edges. It's fine. It's fuel. It's also the reason
+        you've never thought of yiros as something you'd sit down for.
+      </p>
+    </div>
+
+    <div class="table rv">
+      <div class="row row-h">
+        <div class="rlabel"></div>
+        <div class="cell cell-bad">The yiros you're used to</div>
+        <div class="cell cell-good">A Mr Spiros yiros</div>
+      </div>
+
+      <div class="row">
+        <div class="rlabel">The meat</div>
+        <div class="cell cell-bad"><b>Factory-formed cone</b>Frozen, delivered, reheated. Nobody in the building touched it raw.</div>
+        <div class="cell cell-good"><b>Lamb or chicken, on the spit</b>Turned slowly over coals for hours until it's juicy and golden at the edge.</div>
+      </div>
+
+      <div class="row">
+        <div class="rlabel">The pita</div>
+        <div class="cell cell-bad"><b>Out of a bag</b>Off a truck, days old, warmed to hide it.</div>
+        <div class="cell cell-good"><b>Rolled by hand, here</b>Made on site — rolled and flattened fresh, so it's soft, not rubbery.</div>
+      </div>
+
+      <div class="row">
+        <div class="rlabel">The chips</div>
+        <div class="cell cell-bad"><b>Frozen, one dunk</b>Out of a bag, into the oil, onto the plate. Soft in ninety seconds.</div>
+        <div class="cell cell-good"><b>Hand-cut, cooked three times</b>Cut from whole potatoes and triple-cooked, so the crunch survives the drive home.</div>
+      </div>
+
+      <div class="row">
+        <div class="rlabel">The menu</div>
+        <div class="cell cell-bad"><b>Forty things</b>Kebabs, burgers, snack packs, nachos, chicken salt everything.</div>
+        <div class="cell cell-good"><b>Two proteins</b>Prepared one way. Done properly. That's the whole point.</div>
+      </div>
+
+      <div class="row">
+        <div class="rlabel">Who made it</div>
+        <div class="cell cell-bad"><b>No idea</b>A brand. A franchise manual. A supplier list.</div>
+        <div class="cell cell-good"><b>Peter Gloftis</b>Refined from his own family's recipes — the ones behind every Easter, Christmas and Sunday lunch he grew up with.</div>
+      </div>
+    </div>
+
+    <div class="compare-out rv">
+      <p>“There are no shortcuts. Just a commitment to doing things properly.”</p>
+      <a class="btn btn-gold" href="#docket">Get your first serve of chips free</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 5. BENEFITS ==================== -->
+<section class="sect benefits">
+  <div class="wrap">
+    <div class="bhead rv">
+      <p class="eyebrow">What you actually get</p>
+      <h2 class="h-lg">Six reasons it's worth walking to the back.</h2>
+    </div>
+
+    <div class="bgrid rv">
+      <div class="bcard">
+        <span class="bnum">Coals</span>
+        <h3>Lamb that tastes like Sunday, not like a servo</h3>
+        <p>Slow-turned over coals for hours. You can taste the smoke on the outside edge — the bit everyone fights over at a Greek family lunch.</p>
+      </div>
+      <div class="bcard">
+        <span class="bnum">Dough</span>
+        <h3>Pita made this morning, not last week</h3>
+        <p>Rolled and flattened by hand on site. It folds instead of cracking, and it holds together to the last bite.</p>
+      </div>
+      <div class="bcard">
+        <span class="bnum">Potatoes</span>
+        <h3>Chips that are still crunchy in the car</h3>
+        <p>Hand-cut and triple-cooked. The extra two cooks are the difference between a chip and a disappointment.</p>
+      </div>
+      <div class="bcard">
+        <span class="bnum">Focus</span>
+        <h3>A menu short enough to trust</h3>
+        <p>Two proteins, wrapped or plated. Nothing sitting in a bain-marie hoping someone orders it. Order anything — it's all the thing they're good at.</p>
+      </div>
+      <div class="bcard">
+        <span class="bnum">Table</span>
+        <h3>Something to put in the middle and share</h3>
+        <p>Mixed plates of lamb and chicken with warm pita, tzatziki and taramasalata — built to sit between four people and disappear.</p>
+      </div>
+      <div class="bcard">
+        <span class="bnum">Quiet</span>
+        <h3>A seat, even at 12:30</h3>
+        <p>Being at the back has one advantage: while the front of the precinct is three-deep, you're already eating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MENU ==================== -->
+<section class="sect menu" id="menu">
+  <div class="wrap">
+    <p class="eyebrow rv">The whole menu · nothing hidden</p>
+    <h2 class="h-lg rv" style="max-width:22ch">Two proteins. One way. Done properly.</h2>
+
+    <div class="menu-grid">
+      <div class="rv">
+        <div class="mgroup">
+          <h3>Yiros — wrapped or plated</h3>
+          <div class="mitem">
+            <b>Lamb yiros <span class="tag">The signature</span></b>
+            <span>Spit-roasted lamb, hand-rolled pita, hand-cut chips and mustard mayonnaise. This is the one refined from Peter's family recipes.</span>
+          </div>
+          <div class="mitem">
+            <b>Chicken yiros</b>
+            <span>Slow-cooked on the spit, in the same hand-rolled pita.</span>
+          </div>
+          <div class="mitem">
+            <b>Plated</b>
+            <span>Same lamb or chicken, off the spit and onto a plate with pita on the side.</span>
+          </div>
+          <div class="mitem">
+            <b>Mixed plate <span class="tag">To share</span></b>
+            <span>Lamb and chicken together with warm pita and dips — designed to sit in the middle of the table.</span>
+          </div>
+        </div>
+
+        <div class="mgroup">
+          <h3>Choose your dressing</h3>
+          <div class="mitem"><b>The traditional</b><span>Tomato, lettuce, onion, tzatziki.</span></div>
+          <div class="mitem"><b>The Spiros</b><span>Onion, parsley, mustard mayonnaise.</span></div>
+        </div>
+      </div>
+
+      <div class="rv">
+        <div class="mgroup">
+          <h3>Sides &amp; dips</h3>
+          <div class="mitem"><b>Hand-cut chips</b><span>Triple-cooked for extra crunch.</span></div>
+          <div class="mitem"><b>Greek salad</b><span>Tomato, cucumber, red onion, Kalamata olives, feta, oregano, pepperoncini.</span></div>
+          <div class="mitem"><b>Taramasalata</b><span>Cured fish roe dip.</span></div>
+          <div class="mitem"><b>Tzatziki</b><span>Greek yoghurt, cucumber, garlic.</span></div>
+          <div class="mitem"><b>Warm pita</b><span>For sharing, straight off the plate.</span></div>
+        </div>
+
+        <div class="mgroup">
+          <h3>Occasional</h3>
+          <div class="mitem">
+            <b>Whole lamb shoulder <span class="tag">Sundays only</span></b>
+            <span>Slow-cooked and served to share with traditional Greek accompaniments. Only some Sundays — see below.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIRM WITH PETER: is the $15 Mon–Wed special still running? -->
+    <div class="special rv">
+      <div>
+        <b>$15 yiros. Monday to Wednesday, 6–8pm.</b>
+        <span>The cheapest hand-rolled thing on the Gold Coast</span>
+      </div>
+      <a class="btn btn-gold" href="#docket">Get the chips free too</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SUNDAY LAMB — scarcity + list ==================== -->
+<section class="sect sunday" id="sunday">
+  <div class="wrap sunday-in">
+    <div class="rv">
+      <span class="scarcity">Not every Sunday · not many serves</span>
+      <h2 class="h-lg">Some Sundays, there's a whole lamb shoulder.</h2>
+      <p class="lede" style="margin-top:20px">
+        Slow-cooked until it gives way to a spoon, served to share with traditional Greek
+        accompaniments. It's the meal Peter grew up on — the one that took all morning and
+        ended with everyone still at the table at four o'clock.
+      </p>
+      <p style="margin-top:16px">
+        It isn't on every week, and when it is, there's a fixed number of shoulders. Right now
+        it gets announced on Instagram — which means if you don't happen to be scrolling that
+        morning, you miss it. <strong style="color:var(--gold)">The list gets told first.</strong>
+      </p>
+      <p class="microcta" style="color:rgba(237,243,242,.62)">Roughly one message a fortnight. No message when there's no lamb.</p>
+    </div>
+
+    <div class="rv">
+      <!-- ================= 6. DATA CAPTURE — THE DOCKET ================= -->
+      <div class="docket" id="docket">
+        <div id="dk-form">
+          <div class="dk-top"><span>Mr Spiros · Nobby Beach</span><span>No. 001</span></div>
+          <h3>Two things, free, for putting your name down.</h3>
+          <ul class="dk-list">
+            <li><b>A free serve of hand-cut chips</b> with your first yiros — show this docket at the counter.</li>
+            <li><b>“The 7 Signs You're Eating a Fake Yiros”</b> — Peter's one-page guide to telling real from reheated, anywhere you go.</li>
+            <li><b>First word on the Sunday lamb</b>, before it goes up on Instagram.</li>
+          </ul>
+
+          <div class="field">
+            <label for="f-name">First name</label>
+            <input id="f-name" type="text" autocomplete="given-name" placeholder="Peter">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" type="email" autocomplete="email" placeholder="you@email.com">
+            </div>
+            <div class="field">
+              <label for="f-mob">Mobile</label>
+              <input id="f-mob" type="tel" autocomplete="tel" placeholder="04.. .. ..">
+            </div>
+          </div>
+          <p class="dk-err" id="dk-err" role="alert"></p>
+          <!-- WIRE UP: post these three fields to Mailchimp / ActiveCampaign / Klaviyo.
+               Mobile matters as much as email here — SMS is how the Sunday lamb goes out. -->
+          <button class="btn btn-gold" id="dk-go" type="button">Tear off my docket</button>
+          <p class="dk-fine">One email a fortnight at most. Unsubscribe any time. We never pass your details to anyone.</p>
+        </div>
+
+        <div id="dk-done" class="dk-done" hidden>
+          <div class="dk-top"><span>Mr Spiros · Nobby Beach</span><span>Redeem in store</span></div>
+          <h3>Done. Now find the door.</h3>
+          <p>Show this at the counter with your first yiros and the chips are on us.</p>
+          <div class="code" id="dk-code">SPIROS-0000</div>
+          <p><b>Where:</b> rear of the Atrium, The Oxley 1823.<br>Walk past the coffee. Keep going.</p>
+          <p style="margin-top:12px">The guide is in your inbox. The Sunday lamb will come by text.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 7. SOCIAL PROOF ==================== -->
+<section class="sect social">
+  <div class="wrap">
+    <div class="quote-grid rv">
+      <div>
+        <p class="eyebrow">What people say when they find it</p>
+        <blockquote class="bigquote">“The chicken yiros was delicious, the <em>authentic pita</em> was perfect!”</blockquote>
+        <p class="attrib">Google review · 4.0★ from 46 reviews</p>
+      </div>
+      <div>
+        <p class="lede" style="color:rgba(4,40,58,.75)">
+          Local press put it more plainly: Mr Spiros elevates
+          <strong>“a humble yiros into something worth sitting down for.”</strong>
+        </p>
+        <p style="margin-top:18px;color:rgba(4,40,58,.7)">
+          That's the whole ambition. Not a bigger yiros. Not a cheaper yiros. One that's
+          good enough that you'd book a table for it — in a precinct where you have
+          a dozen other options within thirty metres.
+        </p>
+      </div>
+    </div>
+
+    <!-- 7. VIDEO TESTIMONIALS
+         SWAP EACH: film three regulars on an iPhone, 20–30 seconds each,
+         at the moment they finish eating. Replace each <a> with an <iframe>/<video>.
+         Keep the 4:5 ratio so they work on mobile. -->
+    <div class="vidwall rv">
+      <a class="videoslot" href="#docket" aria-label="Customer video testimonial slot one">
+        <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <b>“I work in the precinct and I had no idea.”</b>
+        <small>Video testimonial · slot 1</small>
+      </a>
+      <a class="videoslot" href="#docket" aria-label="Customer video testimonial slot two">
+        <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <b>“The pita is the bit that gets you.”</b>
+        <small>Video testimonial · slot 2</small>
+      </a>
+      <a class="videoslot" href="#docket" aria-label="Customer video testimonial slot three">
+        <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <b>“We came for the Sunday lamb and stayed till four.”</b>
+        <small>Video testimonial · slot 3</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 8. MORE REASONS ==================== -->
+<section class="sect reasons" id="story">
+  <div class="wrap">
+    <p class="eyebrow rv">Why this bloke, and why here</p>
+    <h2 class="h-lg rv" style="max-width:24ch">Mr Spiros isn't real. Everything he stands for is.</h2>
+    <p class="lede rv" style="margin-top:22px;max-width:62ch;color:rgba(237,243,242,.78)">
+      Mr Spiros is a character — a stand-in for the way Peter Gloftis grew up eating. Macedonian-Greek
+      household, Gold Coast. Easter, Christmas, name days, long Sunday lunches, and always a whole
+      lamb turning by hand over coals for hours while everyone waited.
+    </p>
+
+    <div class="rgrid rv">
+      <div class="rcard">
+        <h3>He's done this before</h3>
+        <p>Peter is the original creator of The Lamb Shop, in Broadbeach and Brisbane. He's no longer involved with that brand — this one is the personal version.</p>
+      </div>
+      <div class="rcard">
+        <h3>It's in the family</h3>
+        <p>His cousin Simon Gloftis is behind Hellenika and The Fish House. Greek food on this coast runs in the bloodline.</p>
+      </div>
+      <div class="rcard">
+        <h3>Small on purpose</h3>
+        <p>One venue. No branches. No franchise plan. Peter chose Nobby Beach for its sleepy beachside charm and wants to keep it that size — quality and conversation over scale.</p>
+      </div>
+      <div class="rcard">
+        <h3>Walls the colour of the Aegean</h3>
+        <p>It's a small room at the back of a beautiful building, painted the blue of the sea Peter's family came from. It seats a fraction of what the front of the precinct does. That's deliberate.</p>
+      </div>
+    </div>
+
+    <div class="press rv">
+      <span>The Greek Herald</span>
+      <span>Inside Gold Coast</span>
+      <span>The Weekend Edition GC</span>
+      <span>The Oxley 1823</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FIND THE DOOR ==================== -->
+<section class="sect find" id="find">
+  <div class="wrap find-grid">
+    <div class="rv">
+      <p class="eyebrow">Stop walking past</p>
+      <h2 class="h-lg">Find the door.</h2>
+      <p class="lede" style="margin-top:18px;color:rgba(4,40,58,.75)">
+        In through the front of The Oxley 1823, straight down the Atrium, all the way to the
+        back. Past the coffee. Past the deli. If you can smell coals, you've arrived.
+      </p>
+
+      <div class="info">
+        <!-- CONFIRM: exact street number formatting, phone number, trading hours -->
+        <div><b class="k">Where</b><span class="v">The Oxley 1823 — rear of the Atrium<br>1823 Lavarack Road, Nobby Beach QLD</span></div>
+        <div><b class="k">Hours</b><span class="v">Daily, 11am – 8pm</span></div>
+        <div><b class="k">Order in</b><span class="v"><a href="https://www.ubereats.com/" target="_blank" rel="noopener">Uber Eats →</a></span></div>
+        <div><b class="k">Instagram</b><span class="v"><a href="https://www.instagram.com/mrspiroshandmadeyiros/" target="_blank" rel="noopener">@mrspiroshandmadeyiros →</a></span></div>
+        <div><b class="k">Price</b><span class="v">Around $20–40 a head</span></div>
+      </div>
+
+      <div class="hero-cta" style="margin-top:26px">
+        <!-- SWAP: paste the exact Google Maps place link once confirmed -->
+        <a class="btn btn-gold" href="https://maps.google.com/?q=The+Oxley+1823+Lavarack+Road+Nobby+Beach" target="_blank" rel="noopener">Open in Maps</a>
+        <a class="btn btn-ghost" href="#docket">Claim the free chips first</a>
+      </div>
+    </div>
+
+    <div class="rv">
+      <div class="plan-card">
+        <h3>The route, from the footpath</h3>
+        <p class="plan-sub">Four seconds of walking is all that's between you and it.</p>
+        <div class="plan" id="plan2">
+          <svg viewBox="0 0 440 372" role="img" aria-label="Floorplan of The Oxley 1823. From Lavarack Road you enter the front of the building and walk the length of the Atrium to the rear, where Mr Spiros is.">
+            <g fill="none" stroke="rgba(4,40,58,.22)" stroke-width="1.4" stroke-linecap="round">
+              <path d="M30 24 H410 M410 24 V300 M30 24 V300" stroke="rgba(4,40,58,.4)" stroke-width="2"/>
+              <path d="M30 300 H175 M265 300 H410" stroke="rgba(4,40,58,.4)" stroke-width="2"/>
+              <path d="M30 92 H175 M30 160 H175 M30 228 H175"/>
+              <path d="M265 92 H410 M265 160 H410 M265 228 H410"/>
+              <path d="M175 82 V300 M265 82 V300" stroke-dasharray="3 6"/>
+            </g>
+
+            <g fill="rgba(4,40,58,.42)" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.4">
+              <text x="44" y="62">COFFEE</text>
+              <text x="44" y="130">DELI</text>
+              <text x="44" y="198">GELATO</text>
+              <text x="44" y="266">BAR</text>
+              <text x="300" y="62">GROCER</text>
+              <text x="300" y="130">RETAIL</text>
+              <text x="300" y="198">RETAIL</text>
+              <text x="300" y="266">DINING</text>
+            </g>
+            <text x="196" y="196" text-anchor="middle" fill="rgba(4,40,58,.3)" font-family="DM Mono, monospace" font-size="9.5" letter-spacing="4" transform="rotate(-90 196 196)">THE ATRIUM</text>
+
+            <line x1="0" y1="316" x2="440" y2="316" stroke="rgba(4,40,58,.25)" stroke-width="1"/>
+            <rect x="0" y="322" width="440" height="32" fill="rgba(4,40,58,.05)"/>
+            <line x1="0" y1="338" x2="440" y2="338" stroke="rgba(4,40,58,.25)" stroke-width="1.2" stroke-dasharray="14 12"/>
+            <text x="220" y="368" text-anchor="middle" fill="rgba(4,40,58,.45)" font-family="DM Mono, monospace" font-size="10" letter-spacing="2.6">LAVARACK RD</text>
+
+            <path class="path-anim" d="M220 310 V88" stroke="var(--gold)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+
+            <circle cx="220" cy="310" r="5.5" fill="rgba(4,40,58,.6)"/>
+            <text x="234" y="314" fill="rgba(4,40,58,.55)" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.4">YOU'RE HERE</text>
+
+            <circle class="pulse" cx="220" cy="57" r="26" fill="var(--gold)" opacity=".22"/>
+            <rect x="152" y="32" width="136" height="50" rx="2" fill="var(--gold)"/>
+            <text x="220" y="54" text-anchor="middle" fill="#1C1512" font-family="DM Mono, monospace" font-size="10" font-weight="500" letter-spacing="1.2">MR SPIROS</text>
+            <text x="220" y="69" text-anchor="middle" fill="rgba(28,21,18,.7)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.2">REAR OF THE ATRIUM</text>
+          </svg>
+        </div>
+        <div class="plan-legend">
+          <span><i class="dot dot-gold"></i>Us</span>
+          <span><i class="dot dot-grey"></i>Everyone you'll walk past</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <div class="brand" style="margin-bottom:12px">
+          <b style="color:var(--foam)">Mr Spiros</b>
+          <span>Handmade Yiros · Nobby Beach</span>
+        </div>
+        <p style="max-width:34ch;margin:0">Rear of the Atrium,<br>The Oxley 1823, 1823 Lavarack Road,<br>Nobby Beach QLD</p>
+      </div>
+      <div class="foot-links">
+        <a href="#menu">Menu</a>
+        <a href="#sunday">Sunday lamb list</a>
+        <a href="#story">The story</a>
+        <a href="#find">Find the door</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.instagram.com/mrspiroshandmadeyiros/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.ubereats.com/" target="_blank" rel="noopener">Order on Uber Eats</a>
+        <a href="#docket">Free chips docket</a>
+      </div>
+    </div>
+    <p class="disclaim">
+      © Mr Spiros Handmade Yiros. Hours, prices and specials are subject to change —
+      check Instagram for the current day. Comparisons on this page describe common
+      mass-production methods in the category generally, not any particular business.
+    </p>
+  </div>
+</footer>
+
+<!-- ==================== STICKY MOBILE CTA ==================== -->
+<div class="stickybar">
+  <div class="sb-text">
+    <b>Free hand-cut chips</b>
+    <small>First visit · 20 seconds</small>
+  </div>
+  <a class="btn btn-gold" href="#docket">Claim it</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- mobile nav ---- */
+  var burger = document.getElementById('burger');
+  var links  = document.getElementById('navlinks');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.textContent = open ? 'CLOSE' : 'MENU';
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.textContent = 'MENU';
+    }
+  });
+
+  /* ---- scroll reveals + floorplan draw ---- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+    var po = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('go'); po.unobserve(en.target); }
+      });
+    }, {threshold:0.3});
+    document.querySelectorAll('.plan').forEach(function(el){ po.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.plan').forEach(function(el){ el.classList.add('go'); });
+  }
+
+  /* ---- the docket ---- */
+  var go    = document.getElementById('dk-go');
+  var form  = document.getElementById('dk-form');
+  var done  = document.getElementById('dk-done');
+  var err   = document.getElementById('dk-err');
+  var code  = document.getElementById('dk-code');
+
+  function valid(email){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email); }
+
+  go.addEventListener('click', function(){
+    var name  = document.getElementById('f-name').value.trim();
+    var email = document.getElementById('f-email').value.trim();
+    var mob   = document.getElementById('f-mob').value.trim();
+
+    if(!name){ err.textContent = 'First name, so we know who to hand the chips to.'; return; }
+    if(!valid(email)){ err.textContent = 'That email doesn\u2019t look right \u2014 the guide has to land somewhere.'; return; }
+    err.textContent = '';
+
+    /* WIRE UP HERE: send {name, email, mob} to the CRM before showing the docket. */
+
+    var n = Math.floor(1000 + Math.random()*8999);
+    code.textContent = 'SPIROS-' + name.slice(0,3).toUpperCase().padEnd(3,'X') + '-' + n;
+    form.hidden = true;
+    done.hidden = false;
+    done.setAttribute('tabindex','-1');
+    done.focus({preventScroll:true});
+  });
+
+  ['f-name','f-email','f-mob'].forEach(function(id){
+    document.getElementById(id).addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); go.click(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
