@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mr Spiros Handmade Yiros — Nobby Beach | Hand-rolled pita, lamb on the spit</title>
-<meta name="description" content="Hidden at the back of The Oxley 1823, Nobby Beach. Lamb and chicken turned slowly over coals. Pita rolled by hand every morning. Chips cut by hand, cooked three times. No shortcuts.">
+<meta name="description" content="Hidden at the back of the Village Market inside The Oxley 1823, Nobby Beach. Lamb and chicken turned slowly over coals. Pita rolled by hand every morning. Chips cut by hand, cooked three times. No shortcuts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    MR SPIROS HANDMADE YIROS
@@ -30,6 +30,8 @@
   --display:"Fraunces",Georgia,"Times New Roman",serif;
   --body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+  --paper:#F2E8D5;
 
   --pad:clamp(20px,5vw,72px);
   --max:1240px;
@@ -167,10 +169,11 @@ a{color:inherit}
 .microcta{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:rgba(237,243,242,.55);margin:14px 0 0}
 
 .trustbar{
-  display:flex;flex-wrap:wrap;gap:0;margin-top:38px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;
   border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
 }
-.trust{padding:16px 22px 16px 0;margin-right:22px;border-right:1px solid var(--line-dark)}
+.trust{padding:16px 14px 16px 0;border-right:1px solid var(--line-dark)}
+@media(max-width:560px){.trustbar{grid-template-columns:repeat(2,1fr)}.trust:nth-child(2n){border-right:0}.trust:nth-child(-n+2){border-bottom:1px solid var(--line-dark)}}
 .trust:last-child{border-right:0}
 .trust b{display:block;font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1}
 .trust span{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,243,242,.5)}
@@ -180,32 +183,44 @@ a{color:inherit}
 .plan-card{
   background:rgba(237,243,242,.045);
   border:1px solid var(--line-dark);
-  border-radius:3px;padding:22px 22px 18px;
+  border-radius:3px;padding:24px 20px 20px;
   position:relative;
 }
 .plan-card h3{
   font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);margin:0 0 4px;font-weight:500;
+  color:var(--gold);margin:0 0 5px;font-weight:500;
 }
-.plan-card p.plan-sub{margin:0 0 14px;font-size:.85rem;color:rgba(237,243,242,.6)}
-.plan svg{width:100%;height:auto;display:block}
-.plan-legend{
-  display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:14px;
-  border-top:1px solid var(--line-dark);
-  font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,243,242,.55);
-}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
-.dot-gold{background:var(--gold)}
-.dot-grey{background:rgba(237,243,242,.35)}
+.plan-card p.plan-sub{margin:0 0 22px;font-size:.85rem;color:rgba(237,243,242,.62)}
 
-.path-anim{stroke-dasharray:7 7;stroke-dashoffset:340}
-.plan.go .path-anim{animation:draw 2.3s cubic-bezier(.5,0,.2,1) forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.pulse{transform-origin:center;animation:pulse 2.6s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.25;r:26}50%{opacity:.06;r:34}}
+/* ---------- SIGNATURE: the napkin sketch ---------- */
+.napkin{
+  background:var(--paper);
+  border-radius:3px;
+  padding:12px;
+  transform:rotate(-1.1deg);
+  box-shadow:0 24px 48px -24px rgba(0,0,0,.65),0 1px 0 rgba(255,255,255,.12);
+  position:relative;
+}
+.napkin::before{
+  content:"";position:absolute;inset:12px;pointer-events:none;z-index:2;
+  background:
+    linear-gradient(90deg,transparent calc(50% - 1px),rgba(28,21,18,.06) 50%,transparent calc(50% + 1px)),
+    linear-gradient(180deg,transparent calc(50% - 1px),rgba(28,21,18,.05) 50%,transparent calc(50% + 1px));
+}
+.napkin svg{width:100%;height:auto;display:block}
+
+.route{stroke-dasharray:640;stroke-dashoffset:640}
+.ink-late{opacity:0}
+.napkin-wrap.go .route{animation:drawroute 1.9s cubic-bezier(.45,0,.25,1) .3s forwards}
+.napkin-wrap.go .ink-late{animation:inkin .45s ease forwards}
+.napkin-wrap.go .i-arrow{animation-delay:1.95s}
+.napkin-wrap.go .i-blob{animation-delay:2.05s}
+.napkin-wrap.go .i-x{animation-delay:2.25s}
+@keyframes drawroute{to{stroke-dashoffset:0}}
+@keyframes inkin{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){
-  .path-anim{stroke-dashoffset:0;animation:none!important}
-  .pulse{animation:none;opacity:.18}
+  .route{stroke-dashoffset:0}
+  .ink-late{opacity:1;animation:none!important}
 }
 
 /* ---------- 4. welcome video ---------- */
@@ -412,10 +427,9 @@ a{color:inherit}
 .info .v{font-size:.98rem}
 .info .v a{color:var(--aegean)}
 @media(max-width:520px){.info div{grid-template-columns:1fr;gap:5px}}
-.find .plan-card{background:#fff;border-color:var(--line)}
+.find .plan-card{background:transparent;border:0;padding:0}
 .find .plan-card h3{color:var(--aegean)}
-.find .plan-card p.plan-sub{color:rgba(4,40,58,.6)}
-.find .plan-legend{color:rgba(4,40,58,.6);border-top-color:var(--line)}
+.find .plan-card p.plan-sub{color:rgba(4,40,58,.66)}
 .find .dot-grey{background:rgba(4,40,58,.3)}
 
 /* ============================================================
@@ -474,17 +488,18 @@ a{color:inherit}
   <div class="hero-grid">
 
     <div>
-      <p class="eyebrow">Nobby Beach · back of The Oxley 1823</p>
+      <p class="eyebrow">Nobby Beach · inside the Village Market</p>
 
       <h1 class="h-xl">You've never<br>walked far<br>enough.</h1>
 
       <p class="kicker">The Gold Coast's worst-signposted lamb.</p>
 
       <p class="hero-copy">
-        Right at the back of the Atrium — past the coffee, past the deli, past the gelato — there's
-        a spit turning lamb and chicken over coals, and a bloke rolling pita by hand every single morning.
+        Walk into The Oxley 1823, past the seating, into the Village Market — and keep going. Right
+        at the back, past the fresh produce, there's a spit turning lamb and chicken over coals, and a
+        bloke rolling pita by hand every morning.
         <strong>No frozen meat cone. No pita off a truck. No shortcuts.</strong>
-        You just have to know the door's there.
+        You just have to know to keep walking.
       </p>
 
       <div class="hero-cta">
@@ -494,9 +509,9 @@ a{color:inherit}
       <p class="microcta">Takes 20 seconds · First visit only · Nothing posted to you</p>
 
       <div class="trustbar">
-        <div class="trust"><b class="stars">★★★★</b><span>4.0 on Google</span></div>
-        <div class="trust"><b>46</b><span>Reviews &amp; counting</span></div>
-        <div class="trust"><b>2</b><span>Proteins. That's it.</span></div>
+        <div class="trust"><b class="stars">★★★★</b><span>Google rating</span></div>
+        <div class="trust"><b>46</b><span>Reviews</span></div>
+        <div class="trust"><b>2</b><span>Proteins only</span></div>
         <div class="trust"><b>0</b><span>Shortcuts</span></div>
       </div>
     </div>
@@ -505,48 +520,109 @@ a{color:inherit}
       <!-- SIGNATURE ELEMENT: the hidden-door floorplan -->
       <div class="plan-card">
         <h3>How to actually find us</h3>
-        <p class="plan-sub">Everyone stops at the front. Keep walking.</p>
-        <div class="plan" id="plan1">
-          <svg viewBox="0 0 440 372" role="img" aria-label="Floorplan of The Oxley 1823. From Lavarack Road you enter the front of the building and walk the length of the Atrium to the rear, where Mr Spiros is.">
-            <g fill="none" stroke="rgba(237,243,242,.28)" stroke-width="1.4" stroke-linecap="round">
-              <path d="M30 24 H410 M410 24 V300 M30 24 V300" stroke="rgba(237,243,242,.45)" stroke-width="2"/>
-              <path d="M30 300 H175 M265 300 H410" stroke="rgba(237,243,242,.45)" stroke-width="2"/>
-              <path d="M30 92 H175 M30 160 H175 M30 228 H175"/>
-              <path d="M265 92 H410 M265 160 H410 M265 228 H410"/>
-              <path d="M175 82 V300 M265 82 V300" stroke-dasharray="3 6"/>
-            </g>
+        <p class="plan-sub">It’s the back corner of the grocery hall. Nobody expects that.</p>
+        <div class="napkin-wrap">
+          <div class="napkin">
+            <svg viewBox="0 0 430 492" role="img" aria-label="Hand-drawn floorplan of The Oxley 1823. In the front entrance from Lavarack Road, past the central seating, into the Village Market which takes up most of the building, then all the way up past the fresh produce and turn left at the very end. Mr Spiros is the back left corner. Oakberry and BSKT are on the same side; Papa Luigi's, Bobby Bang's and Buoy are along the right.">
+              <defs>
+                <filter id="wob" x="-8%" y="-8%" width="116%" height="116%">
+                  <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="7" result="n"/>
+                  <feDisplacementMap in="SourceGraphic" in2="n" scale="2.3" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+              </defs>
 
-            <g fill="rgba(237,243,242,.4)" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.4">
-              <text x="44" y="62">COFFEE</text>
-              <text x="44" y="130">DELI</text>
-              <text x="44" y="198">GELATO</text>
-              <text x="44" y="266">BAR</text>
-              <text x="300" y="62">GROCER</text>
-              <text x="300" y="130">RETAIL</text>
-              <text x="300" y="198">RETAIL</text>
-              <text x="300" y="266">DINING</text>
-            </g>
-            <text x="196" y="196" text-anchor="middle" fill="rgba(237,243,242,.3)" font-family="DM Mono, monospace" font-size="9.5" letter-spacing="4" transform="rotate(-90 196 196)">THE ATRIUM</text>
+              <g filter="url(#wob)" fill="none" stroke="#1C1512" stroke-width="2.1"
+                 stroke-linecap="round" stroke-linejoin="round" opacity=".88">
+                <!-- shell, with a gap at the front entrance -->
+                <path d="M38 54 C150 50 280 52 392 56 C397 160 396 300 391 410 L348 412"/>
+                <path d="M296 412 L39 409 C34 300 34 160 38 54"/>
 
-            <line x1="0" y1="316" x2="440" y2="316" stroke="rgba(237,243,242,.3)" stroke-width="1"/>
-            <rect x="0" y="322" width="440" height="32" fill="rgba(237,243,242,.07)"/>
-            <line x1="0" y1="338" x2="440" y2="338" stroke="rgba(237,243,242,.3)" stroke-width="1.2" stroke-dasharray="14 12"/>
-            <text x="220" y="368" text-anchor="middle" fill="rgba(237,243,242,.45)" font-family="DM Mono, monospace" font-size="10" letter-spacing="2.6">LAVARACK RD</text>
+                <!-- the left strip: Mr Spiros, produce, Oakberry, BSKT -->
+                <path d="M186 54 C187 64 187 74 187 82"/>
+                <path d="M187 112 C188 180 187 240 186 301"/>
+                <path d="M39 301 L186 301"/>
+                <path d="M40 113 C90 110 140 111 186 113" stroke-width="2.5"/>
+                <path d="M40 229 C90 226 140 227 186 229" stroke-width="1.5"/>
+                <!-- squiggle divider, as drawn -->
+                <path d="M42 173 q9 -8 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0" stroke-width="1.5" opacity=".7"/>
 
-            <path class="path-anim" d="M220 310 V88" stroke="var(--gold)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                <!-- right column tenancies -->
+                <path d="M292 56 C294 150 293 240 292 301"/>
+                <path d="M292 301 L391 301"/>
+                <path d="M293 148 L391 150" stroke-width="1.5"/>
+                <path d="M293 230 L391 232" stroke-width="1.5"/>
 
-            <circle cx="220" cy="310" r="5.5" fill="rgba(237,243,242,.75)"/>
-            <text x="234" y="314" fill="rgba(237,243,242,.6)" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.4">YOU'RE HERE</text>
+                <!-- village market blob -->
+                <path d="M254 82 C286 84 292 130 291 190 C290 250 284 292 252 292
+                         C222 292 214 250 215 190 C216 130 224 82 254 82"
+                      stroke-width="1.6" opacity=".55"/>
 
-            <circle class="pulse" cx="220" cy="57" r="26" fill="var(--gold)" opacity=".22"/>
-            <rect x="152" y="32" width="136" height="50" rx="2" fill="var(--gold)"/>
-            <text x="220" y="54" text-anchor="middle" fill="#1C1512" font-family="DM Mono, monospace" font-size="10" font-weight="500" letter-spacing="1.2">MR SPIROS</text>
-            <text x="220" y="69" text-anchor="middle" fill="rgba(28,21,18,.7)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.2">REAR OF THE ATRIUM</text>
-          </svg>
-        </div>
-        <div class="plan-legend">
-          <span><i class="dot dot-gold"></i>Us</span>
-          <span><i class="dot dot-grey"></i>Everyone you'll walk past</span>
+                <!-- fresh produce crate -->
+                <path d="M132 158 v-24 h44 v24 z M132 146 h44"/>
+                <circle cx="145" cy="127" r="7"/><circle cx="164" cy="127" r="7"/>
+
+                <!-- central seating -->
+                <path d="M96 356 C96 328 148 320 202 320 C258 320 306 328 306 356
+                         C306 384 256 391 202 391 C148 391 96 384 96 356" stroke-width="1.7"/>
+                <circle cx="140" cy="352" r="8"/><circle cx="262" cy="352" r="8"/>
+
+                <!-- road -->
+                <path d="M10 452 C140 448 290 449 420 453" stroke-width="1.6"/>
+                <path d="M34 464 h24 M88 465 h24 M142 465 h24 M196 466 h24 M250 466 h24 M304 467 h24 M358 467 h24"
+                      stroke-width="1.4" opacity=".42"/>
+                <circle cx="321" cy="432" r="5" fill="#1C1512" stroke="none"/>
+                <!-- pointer to the front door -->
+                <path d="M282 428 C296 424 306 420 314 415" stroke-width="1.5"/>
+                <path d="M314 415 l-9 1 M314 415 l-1 9" stroke-width="1.5"/>
+              </g>
+
+              <!-- route -->
+              <path class="route" filter="url(#wob)"
+                    d="M321 426 L320 410 C319 394 322 384 318 366
+                       C314 344 300 326 276 312 C252 298 238 282 226 254
+                       C216 228 210 200 208 168 C206 140 212 124 216 112
+                       C220 100 210 96 198 96"
+                    fill="none" stroke="#0A5170" stroke-width="3.1"
+                    stroke-linecap="round" stroke-dasharray="700" stroke-dashoffset="700"/>
+              <g class="ink-late i-arrow" fill="none" stroke="#0A5170" stroke-width="3.1"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M203 88 L188 97 L203 106"/>
+              </g>
+
+              <g class="ink-late i-blob">
+                <path d="M70 88 C70 74 98 70 124 70 C150 70 180 73 180 88
+                         C180 102 150 106 124 106 C98 106 70 102 70 88 Z"
+                      fill="#E2A32B" opacity=".42"/>
+              </g>
+              <g class="ink-late i-x" filter="url(#wob)" stroke="#1C1512" stroke-width="4.6"
+                 stroke-linecap="round" fill="none">
+                <path d="M46 76 L64 96 M64 76 L46 96"/>
+              </g>
+
+              <g font-family="Caveat, cursive" fill="#1C1512">
+                <text x="56" y="36" font-size="18" font-weight="600" opacity=".82">turn left at the very end!</text>
+                <text x="76" y="96" font-size="21" font-weight="700">MR SPIROS</text>
+
+                <text x="46" y="152" font-size="17" opacity=".8">fresh produce</text>
+                <text x="46" y="208" font-size="17" opacity=".8">Oakberry</text>
+                <text x="46" y="268" font-size="17" opacity=".8">BSKT</text>
+
+                <text x="253" y="180" text-anchor="middle" font-size="20" font-weight="700">VILLAGE</text>
+                <text x="253" y="202" text-anchor="middle" font-size="20" font-weight="700">MARKET</text>
+
+                <text x="300" y="106" font-size="16.5" opacity=".72">Papa Luigi&#8217;s</text>
+                <text x="300" y="196" font-size="16.5" opacity=".72">Bobby Bang&#8217;s</text>
+                <text x="300" y="272" font-size="16.5" opacity=".72">Buoy</text>
+
+                <text x="202" y="362" text-anchor="middle" font-size="18" opacity=".8">seating</text>
+
+                <text x="272" y="440" text-anchor="end" font-size="17" font-weight="600">in the front entrance</text>
+                <text x="336" y="440" font-size="16" opacity=".8">you&#8217;re here</text>
+                <text x="215" y="486" text-anchor="middle" font-size="16"
+                      letter-spacing="2" opacity=".6">LAVARACK RD</text>
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -661,7 +737,7 @@ a{color:inherit}
       <div class="bcard">
         <span class="bnum">Quiet</span>
         <h3>A seat, even at 12:30</h3>
-        <p>Being at the back has one advantage: while the front of the precinct is three-deep, you're already eating.</p>
+        <p>Being behind the fruit and veg has one advantage: while the front of the precinct is three-deep, you're already eating.</p>
       </div>
     </div>
   </div>
@@ -790,7 +866,7 @@ a{color:inherit}
           <h3>Done. Now find the door.</h3>
           <p>Show this at the counter with your first yiros and the chips are on us.</p>
           <div class="code" id="dk-code">SPIROS-0000</div>
-          <p><b>Where:</b> rear of the Atrium, The Oxley 1823.<br>Walk past the coffee. Keep going.</p>
+          <p><b>Where:</b> back corner of the Village Market,<br>The Oxley 1823. Walk in, keep going, turn left.</p>
           <p style="margin-top:12px">The guide is in your inbox. The Sunday lamb will come by text.</p>
         </div>
       </div>
@@ -870,7 +946,7 @@ a{color:inherit}
       </div>
       <div class="rcard">
         <h3>Walls the colour of the Aegean</h3>
-        <p>It's a small room at the back of a beautiful building, painted the blue of the sea Peter's family came from. It seats a fraction of what the front of the precinct does. That's deliberate.</p>
+        <p>It's a small room at the back of a 1,000sqm grocery hall, painted the blue of the sea Peter's family came from. It seats a fraction of what the front of the precinct does. That's deliberate.</p>
       </div>
     </div>
 
@@ -890,13 +966,13 @@ a{color:inherit}
       <p class="eyebrow">Don't stop at the front</p>
       <h2 class="h-lg">Find the door.</h2>
       <p class="lede" style="margin-top:18px;color:rgba(4,40,58,.75)">
-        In through the front of The Oxley 1823, straight down the Atrium, all the way to the
-        back. Past the coffee. Past the deli. If you can smell coals, you've arrived.
+        In the front entrance on Lavarack Road, past the seating, through the Village Market and
+        all the way to the back corner. Then turn left. If you can smell coals, you've arrived.
       </p>
 
       <div class="info">
         <!-- CONFIRM: exact street number formatting, phone number, trading hours -->
-        <div><b class="k">Where</b><span class="v">The Oxley 1823 — rear of the Atrium<br>1823 Lavarack Road, Nobby Beach QLD</span></div>
+        <div><b class="k">Where</b><span class="v">Back left corner of the Village Market<br>The Oxley 1823, 17 Lavarack Road<br>Nobby Beach QLD</span></div>
         <div><b class="k">Hours</b><span class="v">Daily, 11am – 8pm</span></div>
         <div><b class="k">Order in</b><span class="v"><a href="https://www.ubereats.com/" target="_blank" rel="noopener">Uber Eats →</a></span></div>
         <div><b class="k">Instagram</b><span class="v"><a href="https://www.instagram.com/mrspiroshandmadeyiros/" target="_blank" rel="noopener">@mrspiroshandmadeyiros →</a></span></div>
@@ -905,56 +981,117 @@ a{color:inherit}
 
       <div class="hero-cta" style="margin-top:26px">
         <!-- SWAP: paste the exact Google Maps place link once confirmed -->
-        <a class="btn btn-gold" href="https://maps.google.com/?q=The+Oxley+1823+Lavarack+Road+Nobby+Beach" target="_blank" rel="noopener">Open in Maps</a>
+        <a class="btn btn-gold" href="https://maps.google.com/?q=The+Oxley+1823+17+Lavarack+Road+Nobby+Beach" target="_blank" rel="noopener">Open in Maps</a>
         <a class="btn btn-ghost" href="#docket">Claim the free chips first</a>
       </div>
     </div>
 
     <div class="rv">
       <div class="plan-card">
-        <h3>The route, from the footpath</h3>
-        <p class="plan-sub">Four seconds of walking is all that's between you and it.</p>
-        <div class="plan" id="plan2">
-          <svg viewBox="0 0 440 372" role="img" aria-label="Floorplan of The Oxley 1823. From Lavarack Road you enter the front of the building and walk the length of the Atrium to the rear, where Mr Spiros is.">
-            <g fill="none" stroke="rgba(4,40,58,.22)" stroke-width="1.4" stroke-linecap="round">
-              <path d="M30 24 H410 M410 24 V300 M30 24 V300" stroke="rgba(4,40,58,.4)" stroke-width="2"/>
-              <path d="M30 300 H175 M265 300 H410" stroke="rgba(4,40,58,.4)" stroke-width="2"/>
-              <path d="M30 92 H175 M30 160 H175 M30 228 H175"/>
-              <path d="M265 92 H410 M265 160 H410 M265 228 H410"/>
-              <path d="M175 82 V300 M265 82 V300" stroke-dasharray="3 6"/>
-            </g>
+        <h3>Peter’s directions</h3>
+        <p class="plan-sub">Under a minute from the footpath.</p>
+        <div class="napkin-wrap">
+          <div class="napkin">
+            <svg viewBox="0 0 430 492" role="img" aria-label="Hand-drawn floorplan of The Oxley 1823. In the front entrance from Lavarack Road, past the central seating, into the Village Market which takes up most of the building, then all the way up past the fresh produce and turn left at the very end. Mr Spiros is the back left corner. Oakberry and BSKT are on the same side; Papa Luigi's, Bobby Bang's and Buoy are along the right.">
+              <defs>
+                <filter id="wob2" x="-8%" y="-8%" width="116%" height="116%">
+                  <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="23" result="n"/>
+                  <feDisplacementMap in="SourceGraphic" in2="n" scale="2.3" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+              </defs>
 
-            <g fill="rgba(4,40,58,.42)" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.4">
-              <text x="44" y="62">COFFEE</text>
-              <text x="44" y="130">DELI</text>
-              <text x="44" y="198">GELATO</text>
-              <text x="44" y="266">BAR</text>
-              <text x="300" y="62">GROCER</text>
-              <text x="300" y="130">RETAIL</text>
-              <text x="300" y="198">RETAIL</text>
-              <text x="300" y="266">DINING</text>
-            </g>
-            <text x="196" y="196" text-anchor="middle" fill="rgba(4,40,58,.3)" font-family="DM Mono, monospace" font-size="9.5" letter-spacing="4" transform="rotate(-90 196 196)">THE ATRIUM</text>
+              <g filter="url(#wob2)" fill="none" stroke="#1C1512" stroke-width="2.1"
+                 stroke-linecap="round" stroke-linejoin="round" opacity=".88">
+                <!-- shell, with a gap at the front entrance -->
+                <path d="M38 54 C150 50 280 52 392 56 C397 160 396 300 391 410 L348 412"/>
+                <path d="M296 412 L39 409 C34 300 34 160 38 54"/>
 
-            <line x1="0" y1="316" x2="440" y2="316" stroke="rgba(4,40,58,.25)" stroke-width="1"/>
-            <rect x="0" y="322" width="440" height="32" fill="rgba(4,40,58,.05)"/>
-            <line x1="0" y1="338" x2="440" y2="338" stroke="rgba(4,40,58,.25)" stroke-width="1.2" stroke-dasharray="14 12"/>
-            <text x="220" y="368" text-anchor="middle" fill="rgba(4,40,58,.45)" font-family="DM Mono, monospace" font-size="10" letter-spacing="2.6">LAVARACK RD</text>
+                <!-- the left strip: Mr Spiros, produce, Oakberry, BSKT -->
+                <path d="M186 54 C187 64 187 74 187 82"/>
+                <path d="M187 112 C188 180 187 240 186 301"/>
+                <path d="M39 301 L186 301"/>
+                <path d="M40 113 C90 110 140 111 186 113" stroke-width="2.5"/>
+                <path d="M40 229 C90 226 140 227 186 229" stroke-width="1.5"/>
+                <!-- squiggle divider, as drawn -->
+                <path d="M42 173 q9 -8 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0" stroke-width="1.5" opacity=".7"/>
 
-            <path class="path-anim" d="M220 310 V88" stroke="var(--gold)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                <!-- right column tenancies -->
+                <path d="M292 56 C294 150 293 240 292 301"/>
+                <path d="M292 301 L391 301"/>
+                <path d="M293 148 L391 150" stroke-width="1.5"/>
+                <path d="M293 230 L391 232" stroke-width="1.5"/>
 
-            <circle cx="220" cy="310" r="5.5" fill="rgba(4,40,58,.6)"/>
-            <text x="234" y="314" fill="rgba(4,40,58,.55)" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.4">YOU'RE HERE</text>
+                <!-- village market blob -->
+                <path d="M254 82 C286 84 292 130 291 190 C290 250 284 292 252 292
+                         C222 292 214 250 215 190 C216 130 224 82 254 82"
+                      stroke-width="1.6" opacity=".55"/>
 
-            <circle class="pulse" cx="220" cy="57" r="26" fill="var(--gold)" opacity=".22"/>
-            <rect x="152" y="32" width="136" height="50" rx="2" fill="var(--gold)"/>
-            <text x="220" y="54" text-anchor="middle" fill="#1C1512" font-family="DM Mono, monospace" font-size="10" font-weight="500" letter-spacing="1.2">MR SPIROS</text>
-            <text x="220" y="69" text-anchor="middle" fill="rgba(28,21,18,.7)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.2">REAR OF THE ATRIUM</text>
-          </svg>
-        </div>
-        <div class="plan-legend">
-          <span><i class="dot dot-gold"></i>Us</span>
-          <span><i class="dot dot-grey"></i>Everyone you'll walk past</span>
+                <!-- fresh produce crate -->
+                <path d="M132 158 v-24 h44 v24 z M132 146 h44"/>
+                <circle cx="145" cy="127" r="7"/><circle cx="164" cy="127" r="7"/>
+
+                <!-- central seating -->
+                <path d="M96 356 C96 328 148 320 202 320 C258 320 306 328 306 356
+                         C306 384 256 391 202 391 C148 391 96 384 96 356" stroke-width="1.7"/>
+                <circle cx="140" cy="352" r="8"/><circle cx="262" cy="352" r="8"/>
+
+                <!-- road -->
+                <path d="M10 452 C140 448 290 449 420 453" stroke-width="1.6"/>
+                <path d="M34 464 h24 M88 465 h24 M142 465 h24 M196 466 h24 M250 466 h24 M304 467 h24 M358 467 h24"
+                      stroke-width="1.4" opacity=".42"/>
+                <circle cx="321" cy="432" r="5" fill="#1C1512" stroke="none"/>
+                <!-- pointer to the front door -->
+                <path d="M282 428 C296 424 306 420 314 415" stroke-width="1.5"/>
+                <path d="M314 415 l-9 1 M314 415 l-1 9" stroke-width="1.5"/>
+              </g>
+
+              <!-- route -->
+              <path class="route" filter="url(#wob2)"
+                    d="M321 426 L320 410 C319 394 322 384 318 366
+                       C314 344 300 326 276 312 C252 298 238 282 226 254
+                       C216 228 210 200 208 168 C206 140 212 124 216 112
+                       C220 100 210 96 198 96"
+                    fill="none" stroke="#0A5170" stroke-width="3.1"
+                    stroke-linecap="round" stroke-dasharray="700" stroke-dashoffset="700"/>
+              <g class="ink-late i-arrow" fill="none" stroke="#0A5170" stroke-width="3.1"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M203 88 L188 97 L203 106"/>
+              </g>
+
+              <g class="ink-late i-blob">
+                <path d="M70 88 C70 74 98 70 124 70 C150 70 180 73 180 88
+                         C180 102 150 106 124 106 C98 106 70 102 70 88 Z"
+                      fill="#E2A32B" opacity=".42"/>
+              </g>
+              <g class="ink-late i-x" filter="url(#wob2)" stroke="#1C1512" stroke-width="4.6"
+                 stroke-linecap="round" fill="none">
+                <path d="M46 76 L64 96 M64 76 L46 96"/>
+              </g>
+
+              <g font-family="Caveat, cursive" fill="#1C1512">
+                <text x="56" y="36" font-size="18" font-weight="600" opacity=".82">turn left at the very end!</text>
+                <text x="76" y="96" font-size="21" font-weight="700">MR SPIROS</text>
+
+                <text x="46" y="152" font-size="17" opacity=".8">fresh produce</text>
+                <text x="46" y="208" font-size="17" opacity=".8">Oakberry</text>
+                <text x="46" y="268" font-size="17" opacity=".8">BSKT</text>
+
+                <text x="253" y="180" text-anchor="middle" font-size="20" font-weight="700">VILLAGE</text>
+                <text x="253" y="202" text-anchor="middle" font-size="20" font-weight="700">MARKET</text>
+
+                <text x="300" y="106" font-size="16.5" opacity=".72">Papa Luigi&#8217;s</text>
+                <text x="300" y="196" font-size="16.5" opacity=".72">Bobby Bang&#8217;s</text>
+                <text x="300" y="272" font-size="16.5" opacity=".72">Buoy</text>
+
+                <text x="202" y="362" text-anchor="middle" font-size="18" opacity=".8">seating</text>
+
+                <text x="272" y="440" text-anchor="end" font-size="17" font-weight="600">in the front entrance</text>
+                <text x="336" y="440" font-size="16" opacity=".8">you&#8217;re here</text>
+                <text x="215" y="486" text-anchor="middle" font-size="16"
+                      letter-spacing="2" opacity=".6">LAVARACK RD</text>
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -970,7 +1107,7 @@ a{color:inherit}
           <b style="color:var(--foam)">Mr Spiros</b>
           <span>Handmade Yiros · Nobby Beach</span>
         </div>
-        <p style="max-width:34ch;margin:0">Rear of the Atrium,<br>The Oxley 1823, 1823 Lavarack Road,<br>Nobby Beach QLD</p>
+        <p style="max-width:34ch;margin:0">Back of the Village Market,<br>The Oxley 1823, 17 Lavarack Road,<br>Nobby Beach QLD</p>
       </div>
       <div class="foot-links">
         <a href="#menu">Menu</a>
@@ -1036,10 +1173,10 @@ a{color:inherit}
         if(en.isIntersecting){ en.target.classList.add('go'); po.unobserve(en.target); }
       });
     }, {threshold:0.3});
-    document.querySelectorAll('.plan').forEach(function(el){ po.observe(el); });
+    document.querySelectorAll('.napkin-wrap').forEach(function(el){ po.observe(el); });
   } else {
     document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
-    document.querySelectorAll('.plan').forEach(function(el){ el.classList.add('go'); });
+    document.querySelectorAll('.napkin-wrap').forEach(function(el){ el.classList.add('go'); });
   }
 
   /* ---- the docket ---- */
