@@ -377,6 +377,32 @@ a{color:inherit}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- reel: click-to-load, styled to match ---------- */
+.reelslot{
+  position:relative;aspect-ratio:16/10;border-radius:3px;overflow:hidden;
+  border:1px solid rgba(20,18,15,.25);
+  background:
+    radial-gradient(70% 90% at 50% 110%,rgba(240,180,41,.35),transparent 62%),
+    linear-gradient(150deg,var(--blue,#234E77),var(--ink,#14212E));
+  transition:height .25s ease;
+}
+.reelslot.loaded{aspect-ratio:auto;height:640px;border-color:rgba(20,18,15,.18);background:#fff}
+.reelslot.loaded iframe{width:100%;height:100%;border:0;display:block}
+.reel-facade{
+  width:100%;height:100%;border:0;cursor:pointer;background:transparent;color:#F6F1E5;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  text-align:center;padding:20px;font-family:inherit;
+}
+.reel-facade:hover .play{transform:scale(1.08)}
+.reel-facade b{font-family:var(--body);font-weight:800;font-size:1.12rem;letter-spacing:-.02em}
+.reel-facade small{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(246,241,229,.68)}
+.reel-fallback{
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;
+  margin:10px 0 0;color:rgba(20,18,15,.55);
+}
+.reel-fallback a{color:var(--red,#C9291D);font-weight:500}
 </style>
 </head>
 <body>
@@ -573,11 +599,20 @@ a{color:inherit}
       <!-- 4. WELCOME VIDEO
            SWAP: replace this <a> with an <iframe> or <video> once Peter's
            60-second welcome video is shot. Keep the 16:10 ratio. -->
-      <a class="videoslot hero-video" href="#docket" aria-label="Welcome video — 60 seconds with Peter">
-        <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <b>“Here's why there's no shortcut.”</b>
-        <small>60 seconds with Peter · video slot</small>
-      </a>
+      <!-- REEL: click-to-load facade. No Meta JS runs until the person clicks.
+           To self-host later: replace the iframe injection in the script with a
+           <video src="walk-in.mp4" autoplay muted loop playsinline> and delete the fallback link. -->
+      <div class="reelslot hero-video" id="reelslot" data-reel="Db974u9Rwf2">
+        <button class="reel-facade" type="button"
+                aria-label="Play the reel showing how to find Mr Spiros">
+          <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <b>Watch the walk in</b>
+          <small>Peter's reel · see exactly where the door is</small>
+        </button>
+      </div>
+      <p class="reel-fallback">
+        Not loading? <a href="https://www.instagram.com/reel/Db974u9Rwf2/" target="_blank" rel="noopener">Open it on Instagram →</a>
+      </p>
     </div>
 
   </div>
@@ -1150,6 +1185,24 @@ a{color:inherit}
     document.querySelectorAll('.napkin-wrap').forEach(function(el){ el.classList.add('go'); });
   }
 
+
+  /* ---- reel: load Instagram only on click ---- */
+  var slot=document.getElementById('reelslot');
+  if(slot){
+    slot.addEventListener('click',function(){
+      if(slot.classList.contains('loaded')) return;
+      var id=slot.getAttribute('data-reel');
+      var f=document.createElement('iframe');
+      f.src='https://www.instagram.com/reel/'+id+'/embed';
+      f.setAttribute('allowfullscreen','');
+      f.setAttribute('scrolling','no');
+      f.setAttribute('title','Mr Spiros — how to find us');
+      f.setAttribute('loading','lazy');
+      slot.innerHTML='';
+      slot.appendChild(f);
+      slot.classList.add('loaded');
+    });
+  }
   /* ---- the docket ---- */
   var go    = document.getElementById('dk-go');
   var form  = document.getElementById('dk-form');
