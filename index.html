@@ -4,212 +4,164 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mr Spiros Handmade Yiros — Nobby Beach | Hand-rolled pita, lamb on the spit</title>
-<meta name="description" content="Hidden at the back of the Village Market inside The Oxley 1823, Nobby Beach. Lamb and chicken turned slowly over coals. Pita rolled by hand every morning. Chips cut by hand, cooked three times. No shortcuts.">
+<meta name="description" content="Hidden at the back of the Atrium at The Oxley 1823, Nobby Beach. Lamb and chicken turned slowly over coals. Pita rolled by hand every morning. Chips cut by hand, cooked three times. No shortcuts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    MR SPIROS HANDMADE YIROS
-   Design tokens
-   Palette derived from the brief: interior walls "the colour of
-   the Aegean sea" + the gold of lamb turning over coals.
+   Palette lifted from the room itself: the cornflower wall,
+   the olive tables, and the red/pink/butter of the poster wall.
    ============================================================ */
 :root{
-  --deep:#04283A;      /* near-black teal — deep water */
-  --aegean:#0A5170;    /* the wall colour */
-  --shallow:#3D92B5;   /* shallow water */
-  --foam:#EDF3F2;      /* cool off-white */
-  --gold:#E2A32B;      /* golden lamb / ember */
-  --gold-hot:#F2BE55;
-  --coal:#1C1512;      /* charcoal */
-  --pita:#E8D9BC;      /* fresh dough */
-  --line:rgba(10,81,112,.18);
-  --line-dark:rgba(237,243,242,.16);
+  --ink:#14212E;
+  --sky:#6FA8DC;        /* the wall behind the servery */
+  --sky-lt:#9CC6E9;
+  --blue:#234E77;
+  --olive:#5D6B33;      /* the tables */
+  --olive-lt:#8A9A54;
+  --red:#C9291D;
+  --red-lt:#E23A2E;
+  --pink:#EE5A90;
+  --butter:#F5C542;
+  --cream:#F6F1E5;
+  --paper:#F4EBD8;
+  --line:rgba(20,33,46,.22);
+  --line-lt:rgba(246,241,229,.22);
 
-  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --display:"Anton",Impact,"Haettenschweiler","Arial Narrow Bold",sans-serif;
   --body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  --mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
-  --paper:#F2E8D5;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --hand:"Caveat","Bradley Hand",cursive;
 
   --pad:clamp(20px,5vw,72px);
   --max:1240px;
 }
-
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
-  margin:0;
-  background:var(--foam);
-  color:var(--deep);
-  font-family:var(--body);
-  font-size:clamp(16px,1.05vw,17.5px);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:var(--body);font-size:clamp(16px,1.05vw,17.5px);line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
 
-/* ---------- shared type ---------- */
+/* ---------- type ---------- */
 .h-xl,.h-lg,.h-md,.h-sm{
-  font-family:var(--display);
-  font-variation-settings:"SOFT" 0,"WONK" 1;
-  font-weight:700;
-  line-height:.98;
-  letter-spacing:-.022em;
-  margin:0;
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  line-height:.9;letter-spacing:.005em;margin:0;
 }
-.h-xl{font-size:clamp(2.6rem,7.4vw,5.6rem)}
-.h-lg{font-size:clamp(2.1rem,5vw,3.9rem);line-height:1.02}
-.h-md{font-size:clamp(1.5rem,2.8vw,2.35rem);line-height:1.08}
-.h-sm{font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.15;letter-spacing:-.012em}
-
+.h-xl{font-size:clamp(3rem,8.6vw,6.6rem)}
+.h-lg{font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:.94}
+.h-md{font-size:clamp(1.6rem,3vw,2.5rem);line-height:.96}
+.h-sm{font-size:clamp(1.2rem,1.8vw,1.5rem);line-height:1}
 .eyebrow{
-  font-family:var(--mono);
-  font-size:.7rem;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--shallow);
-  margin:0 0 18px;
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  margin:0 0 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--red);
 }
-.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);flex:none}
+.eyebrow::before{content:"";width:26px;height:3px;background:currentColor;flex:none}
 .lede{font-size:clamp(1.05rem,1.45vw,1.24rem);line-height:1.55}
 .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
-.sect{padding-block:clamp(64px,8.5vw,124px)}
+.sect{padding-block:clamp(60px,8vw,116px)}
+.on-dark,.on-dark .h-lg{color:var(--cream)}
 
-/* ---------- buttons ---------- */
+/* ---------- buttons: hard poster shadows ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   font-family:var(--body);font-weight:700;font-size:.95rem;
-  letter-spacing:.005em;
-  padding:16px 26px;border-radius:2px;border:2px solid transparent;
-  text-decoration:none;cursor:pointer;
-  transition:transform .18s ease,background .18s ease,color .18s ease,box-shadow .18s ease;
+  padding:15px 26px;border-radius:0;border:2.5px solid var(--ink);
+  text-decoration:none;cursor:pointer;background:var(--cream);color:var(--ink);
+  box-shadow:5px 5px 0 var(--ink);
+  transition:transform .13s ease,box-shadow .13s ease,background .13s ease;
 }
-.btn-gold{background:var(--gold);color:var(--coal);box-shadow:0 0 0 0 rgba(226,163,43,.5)}
-.btn-gold:hover{background:var(--gold-hot);transform:translateY(-2px);box-shadow:0 10px 26px -12px rgba(226,163,43,.9)}
-.btn-ghost{border-color:currentColor;background:transparent}
-.btn-ghost:hover{background:var(--deep);color:var(--foam);border-color:var(--deep);transform:translateY(-2px)}
-.on-dark .btn-ghost:hover{background:var(--foam);color:var(--deep);border-color:var(--foam)}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--ink)}
+.btn-gold{background:var(--red);color:#fff}
+.btn-ghost{background:transparent}
+.on-dark .btn{border-color:var(--cream);box-shadow:5px 5px 0 var(--cream)}
+.on-dark .btn:hover{box-shadow:2px 2px 0 var(--cream)}
+.on-dark .btn-ghost{color:var(--cream)}
+.on-dark .btn-gold{border-color:var(--cream)}
+
+/* ---------- sticker ---------- */
+.sticker{
+  display:inline-block;font-family:var(--display);text-transform:uppercase;
+  font-size:.8rem;letter-spacing:.04em;line-height:1;
+  background:var(--butter);color:var(--ink);
+  padding:9px 14px 7px;border:2.5px solid var(--ink);
+  transform:rotate(-3deg);box-shadow:3px 3px 0 var(--ink);
+}
 
 /* ============================================================
    NAV
    ============================================================ */
-.nav{
-  position:sticky;top:0;z-index:60;
-  background:rgba(4,40,58,.92);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line-dark);
-  color:var(--foam);
-}
-.nav-in{
-  max-width:var(--max);margin:0 auto;padding:12px var(--pad);
-  display:flex;align-items:center;gap:20px;
-}
+.nav{position:sticky;top:0;z-index:60;background:var(--ink);
+     border-bottom:3px solid var(--ink);color:var(--cream)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:11px var(--pad);display:flex;align-items:center;gap:20px}
 .brand{display:flex;flex-direction:column;line-height:1;text-decoration:none;margin-right:auto}
-.brand b{font-family:var(--display);font-variation-settings:"WONK" 1;font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
-.brand span{font-family:var(--mono);font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:5px}
-.nav-links{display:flex;gap:26px;align-items:center}
-.nav-links a{
-  text-decoration:none;font-size:.83rem;font-weight:500;letter-spacing:.02em;
-  opacity:.82;padding:4px 0;border-bottom:1px solid transparent;transition:.16s;
-}
-.nav-links a:hover{opacity:1;border-bottom-color:var(--gold)}
-.nav .btn{padding:11px 18px;font-size:.8rem}
-.burger{display:none;background:none;border:1px solid var(--line-dark);color:inherit;border-radius:2px;padding:9px 12px;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;cursor:pointer}
+.brand b{font-family:var(--display);font-weight:400;font-size:1.3rem;letter-spacing:.02em;text-transform:uppercase}
+.brand span{font-family:var(--mono);font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:var(--butter);margin-top:5px}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{text-decoration:none;font-size:.83rem;font-weight:600;padding:4px 0;border-bottom:2px solid transparent;transition:.15s}
+.nav-links a:hover{border-bottom-color:var(--butter)}
+.nav .btn{padding:10px 16px;font-size:.8rem;box-shadow:3px 3px 0 var(--cream)}
+.burger{background:none;border:2px solid var(--cream);color:inherit;padding:8px 12px;
+        font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;cursor:pointer;display:none}
 @media(max-width:940px){
-  .nav-links{
-    display:none;position:absolute;top:100%;left:0;right:0;
-    background:var(--deep);flex-direction:column;align-items:stretch;gap:0;
-    padding:8px var(--pad) 22px;border-bottom:1px solid var(--line-dark);
-  }
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ink);
+             flex-direction:column;align-items:stretch;gap:0;padding:4px var(--pad) 20px}
   .nav-links.open{display:flex}
-  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line-dark);font-size:.98rem;opacity:1}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line-lt);font-size:1rem}
   .burger{display:block}
   .nav-cta{display:none}
 }
 
 /* ============================================================
-   1+2+3. HERO — problem/solution headline, agitating copy, image
+   HERO — on the wall colour
    ============================================================ */
-.hero{
-  position:relative;
-  background:
-    radial-gradient(120% 90% at 88% 0%,rgba(61,146,181,.20),transparent 58%),
-    radial-gradient(90% 70% at 8% 100%,rgba(61,146,181,.24),transparent 60%),
-    var(--deep);
-  color:var(--foam);
-  overflow:hidden;
-}
-.hero::after{
-  content:"";position:absolute;inset:auto 0 -1px 0;height:120px;
-  background:linear-gradient(to bottom,transparent,rgba(226,163,43,.07));
-  pointer-events:none;
-}
-.hero-grid{
-  max-width:var(--max);margin:0 auto;padding:clamp(46px,6.6vw,84px) var(--pad) clamp(56px,6vw,80px);
-  display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,4.5vw,68px);align-items:start;
-}
+.hero{background:var(--sky);color:var(--ink);position:relative;overflow:hidden;
+      border-bottom:3px solid var(--ink)}
+.hero-grid{max-width:var(--max);margin:0 auto;
+  padding:clamp(40px,5.5vw,74px) var(--pad) clamp(50px,5.5vw,74px);
+  display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(30px,4.4vw,64px);align-items:start}
 @media(max-width:1000px){.hero-grid{grid-template-columns:1fr}}
-.hero .eyebrow{color:var(--gold)}
-.hero .eyebrow::before{background:var(--gold)}
-.kicker{
-  font-family:var(--display);font-style:italic;font-weight:400;
-  font-size:clamp(1.05rem,1.9vw,1.42rem);color:var(--gold);
-  margin:20px 0 0;line-height:1.3;
-}
-.hero-copy{margin:22px 0 0;max-width:56ch;color:rgba(237,243,242,.86);font-size:clamp(1.02rem,1.35vw,1.16rem)}
-.hero-copy strong{color:var(--foam)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.microcta{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:rgba(237,243,242,.55);margin:14px 0 0}
-
-.trustbar{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;
-  border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
-}
-.trust{padding:16px 14px 16px 0;border-right:1px solid var(--line-dark)}
-@media(max-width:560px){.trustbar{grid-template-columns:repeat(2,1fr)}.trust:nth-child(2n){border-right:0}.trust:nth-child(-n+2){border-bottom:1px solid var(--line-dark)}}
+.hero .eyebrow{color:var(--ink)}
+.kicker{font-family:var(--body);font-weight:800;font-style:italic;
+        font-size:clamp(1.05rem,1.9vw,1.4rem);color:var(--red);margin:18px 0 0;line-height:1.25}
+.hero-copy{margin:20px 0 0;max-width:56ch;font-size:clamp(1.02rem,1.35vw,1.14rem);color:rgba(20,33,46,.86)}
+.hero-copy strong{color:var(--ink);background:var(--butter);padding:1px 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.microcta{font-family:var(--mono);font-size:.72rem;color:rgba(20,33,46,.62);margin:14px 0 0}
+.trustbar{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;
+          border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.trust{padding:14px 12px 14px 0;border-right:1px solid var(--line)}
 .trust:last-child{border-right:0}
-.trust b{display:block;font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1}
-.trust span{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,243,242,.5)}
-.stars{color:var(--gold);letter-spacing:.08em}
+.trust b{display:block;font-family:var(--display);font-size:1.6rem;line-height:1}
+.trust span{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(20,33,46,.6)}
+.stars{color:var(--red);letter-spacing:.06em}
+@media(max-width:560px){
+  .trustbar{grid-template-columns:repeat(2,1fr)}
+  .trust:nth-child(2n){border-right:0}
+  .trust:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
 
-/* ---------- signature: the hidden-door floorplan ---------- */
-.plan-card{
-  background:rgba(237,243,242,.045);
-  border:1px solid var(--line-dark);
-  border-radius:3px;padding:24px 20px 20px;
-  position:relative;
-}
-.plan-card h3{
-  font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);margin:0 0 5px;font-weight:500;
-}
-.plan-card p.plan-sub{margin:0 0 22px;font-size:.85rem;color:rgba(237,243,242,.62)}
-
-/* ---------- SIGNATURE: the napkin sketch ---------- */
-.napkin{
-  background:var(--paper);
-  border-radius:3px;
-  padding:12px;
-  transform:rotate(-1.1deg);
-  box-shadow:0 24px 48px -24px rgba(0,0,0,.65),0 1px 0 rgba(255,255,255,.12);
-  position:relative;
-}
-.napkin::before{
-  content:"";position:absolute;inset:12px;pointer-events:none;z-index:2;
-  background:
-    linear-gradient(90deg,transparent calc(50% - 1px),rgba(28,21,18,.06) 50%,transparent calc(50% + 1px)),
-    linear-gradient(180deg,transparent calc(50% - 1px),rgba(28,21,18,.05) 50%,transparent calc(50% + 1px));
-}
+/* ---------- napkin ---------- */
+.plan-card{background:var(--cream);border:3px solid var(--ink);padding:20px 18px 18px;
+           box-shadow:8px 8px 0 var(--ink)}
+.plan-card h3{font-family:var(--display);text-transform:uppercase;font-size:1rem;letter-spacing:.03em;
+              color:var(--red);margin:0 0 4px;font-weight:400}
+.plan-card p.plan-sub{margin:0 0 18px;font-size:.85rem;color:rgba(20,33,46,.7)}
+.napkin{background:var(--paper);padding:10px;transform:rotate(-1deg);
+        box-shadow:0 12px 26px -14px rgba(20,33,46,.5);position:relative}
+.napkin::before{content:"";position:absolute;inset:10px;pointer-events:none;z-index:2;
+  background:linear-gradient(90deg,transparent calc(50% - 1px),rgba(20,33,46,.05) 50%,transparent calc(50% + 1px)),
+             linear-gradient(180deg,transparent calc(50% - 1px),rgba(20,33,46,.045) 50%,transparent calc(50% + 1px))}
 .napkin svg{width:100%;height:auto;display:block}
-
-.route{stroke-dasharray:640;stroke-dashoffset:640}
+.route{stroke-dasharray:700;stroke-dashoffset:700}
 .ink-late{opacity:0}
 .napkin-wrap.go .route{animation:drawroute 1.9s cubic-bezier(.45,0,.25,1) .3s forwards}
 .napkin-wrap.go .ink-late{animation:inkin .45s ease forwards}
@@ -218,245 +170,211 @@ a{color:inherit}
 .napkin-wrap.go .i-x{animation-delay:2.25s}
 @keyframes drawroute{to{stroke-dashoffset:0}}
 @keyframes inkin{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){
-  .route{stroke-dashoffset:0}
-  .ink-late{opacity:1;animation:none!important}
-}
+@media (prefers-reduced-motion:reduce){.route{stroke-dashoffset:0}.ink-late{opacity:1;animation:none!important}}
 
-/* ---------- 4. welcome video ---------- */
-.videoslot{
-  position:relative;aspect-ratio:16/10;border-radius:3px;overflow:hidden;
-  border:1px solid var(--line-dark);
-  background:
-    radial-gradient(70% 90% at 50% 110%,rgba(226,163,43,.3),transparent 62%),
-    linear-gradient(150deg,var(--aegean),var(--coal));
+/* ---------- video slots ---------- */
+.videoslot{position:relative;aspect-ratio:16/10;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(150deg,var(--blue),var(--ink));box-shadow:8px 8px 0 var(--ink);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
-  text-align:center;padding:20px;cursor:pointer;text-decoration:none;color:var(--foam);
-  transition:.2s;
-}
-.videoslot:hover{border-color:var(--gold)}
-.videoslot:hover .play{transform:scale(1.08);background:var(--gold-hot)}
-.play{
-  width:60px;height:60px;border-radius:50%;background:var(--gold);
-  display:grid;place-items:center;transition:.2s;flex:none;
-}
-.play svg{width:20px;height:20px;margin-left:3px;fill:var(--coal)}
-.videoslot b{font-family:var(--display);font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
-.videoslot small{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,243,242,.6)}
-.hero-video{margin-top:20px}
+  text-align:center;padding:20px;cursor:pointer;text-decoration:none;color:var(--cream);transition:.15s}
+.videoslot:hover{transform:translate(3px,3px);box-shadow:5px 5px 0 var(--ink)}
+.play{width:58px;height:58px;border-radius:50%;background:var(--butter);border:2.5px solid var(--ink);
+      display:grid;place-items:center;flex:none}
+.play svg{width:19px;height:19px;margin-left:3px;fill:var(--ink)}
+.videoslot b{font-family:var(--display);font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em}
+.videoslot small{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky-lt)}
+.hero-video{margin-top:22px}
 
 /* ============================================================
-   2. THE PROBLEM — agitate
+   MARQUEE
    ============================================================ */
-.compare{background:var(--coal);color:var(--foam)}
-.compare .h-lg{max-width:20ch}
-.compare-intro{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,60px);align-items:end;margin-bottom:clamp(34px,4vw,54px)}
-@media(max-width:880px){.compare-intro{grid-template-columns:1fr;align-items:start}}
-.compare-intro p{margin:0;color:rgba(237,243,242,.72);max-width:52ch}
+.marquee{background:var(--red);color:#fff;border-block:3px solid var(--ink);
+         overflow:hidden;padding:11px 0;white-space:nowrap}
+.marquee div{display:inline-block;animation:slide 26s linear infinite}
+.marquee span{font-family:var(--display);text-transform:uppercase;font-size:1.15rem;
+              letter-spacing:.05em;padding:0 18px}
+.marquee i{color:var(--butter);font-style:normal}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee div{animation:none}}
 
-.table{border-top:1px solid var(--line-dark)}
-.row{
-  display:grid;grid-template-columns:120px 1fr 1fr;gap:clamp(16px,3vw,44px);
-  padding:clamp(18px,2.4vw,26px) 0;border-bottom:1px solid var(--line-dark);
-  align-items:start;
-}
-.row-h{padding-block:14px}
+/* ============================================================
+   COMPARE
+   ============================================================ */
+.compare{background:var(--ink);color:var(--cream)}
+.compare .eyebrow{color:var(--butter)}
+.compare-intro{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,56px);align-items:end;margin-bottom:clamp(32px,4vw,50px)}
+@media(max-width:880px){.compare-intro{grid-template-columns:1fr;align-items:start}}
+.compare-intro p{margin:0;color:rgba(246,241,229,.75);max-width:52ch}
+.table{border-top:2px solid var(--line-lt)}
+.row{display:grid;grid-template-columns:120px 1fr 1fr;gap:clamp(16px,3vw,44px);
+     padding:clamp(18px,2.3vw,26px) 0;border-bottom:1px solid var(--line-lt);align-items:start}
+.row-h{padding-block:12px}
 .row-h .cell{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase}
-.rlabel{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,243,242,.42);padding-top:3px}
-.cell-bad{color:rgba(237,243,242,.48)}
-.cell-bad b{display:block;font-family:var(--display);font-weight:600;font-size:1.02rem;margin-bottom:4px;color:rgba(237,243,242,.62)}
-.cell-good b{display:block;font-family:var(--display);font-weight:700;font-size:1.08rem;margin-bottom:4px;color:var(--gold)}
-.cell-good{color:rgba(237,243,242,.9)}
-.row-h .cell-bad{color:rgba(237,243,242,.42)}
-.row-h .cell-good{color:var(--gold)}
+.rlabel{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,229,.45);padding-top:4px}
+.cell-bad{color:rgba(246,241,229,.5)}
+.cell-bad b{display:block;font-family:var(--display);text-transform:uppercase;font-size:1rem;
+            letter-spacing:.02em;margin-bottom:5px;color:rgba(246,241,229,.62);font-weight:400}
+.cell-good{color:rgba(246,241,229,.92)}
+.cell-good b{display:block;font-family:var(--display);text-transform:uppercase;font-size:1.08rem;
+             letter-spacing:.02em;margin-bottom:5px;color:var(--butter);font-weight:400}
+.row-h .cell-bad{color:rgba(246,241,229,.45)}
+.row-h .cell-good{color:var(--butter)}
 @media(max-width:760px){
   .row{grid-template-columns:1fr;gap:14px;padding-block:22px}
   .row-h{display:none}
-  .cell-bad::before{content:"The usual — ";font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,243,242,.35)}
-  .cell-good::before{content:"Mr Spiros — ";font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .cell-bad::before{content:"The usual — ";font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,229,.4)}
+  .cell-good::before{content:"Mr Spiros — ";font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--butter)}
 }
-.compare-out{
-  margin-top:clamp(32px,4vw,50px);padding:clamp(24px,3vw,36px);
-  border:1px solid var(--gold);border-radius:3px;
-  background:linear-gradient(120deg,rgba(226,163,43,.1),transparent 70%);
-  display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:space-between;
-}
-.compare-out p{margin:0;font-family:var(--display);font-size:clamp(1.2rem,2.1vw,1.7rem);font-weight:600;line-height:1.2;max-width:26ch;font-variation-settings:"WONK" 1}
+.compare-out{margin-top:clamp(30px,4vw,46px);padding:clamp(22px,3vw,34px);
+  border:3px solid var(--butter);background:rgba(245,197,66,.08);
+  display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.compare-out p{margin:0;font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(1.2rem,2.2vw,1.9rem);line-height:.98;max-width:22ch;font-weight:400}
 
 /* ============================================================
-   5. BENEFITS
+   BENEFITS
    ============================================================ */
-.benefits{background:var(--foam)}
-.bhead{max-width:60ch;margin-bottom:clamp(34px,4vw,56px)}
-.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.bcard{background:var(--foam);padding:clamp(24px,2.6vw,34px);transition:background .22s ease}
-.bcard:hover{background:#fff}
+.benefits{background:var(--cream)}
+.bhead{max-width:60ch;margin-bottom:clamp(32px,4vw,52px)}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:1040px){.bgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:660px){.bgrid{grid-template-columns:1fr}}
-.bnum{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--shallow);display:block;margin-bottom:16px}
-.bcard h3{font-family:var(--display);font-variation-settings:"WONK" 1;font-weight:700;font-size:1.24rem;line-height:1.12;margin:0 0 10px;letter-spacing:-.015em}
-.bcard p{margin:0;font-size:.94rem;color:rgba(4,40,58,.75)}
+.bcard{background:#fff;border:3px solid var(--ink);padding:clamp(22px,2.4vw,30px);
+       box-shadow:6px 6px 0 var(--ink);transition:transform .14s ease,box-shadow .14s ease}
+.bcard:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+.bcard:nth-child(3n+1){background:var(--sky-lt)}
+.bcard:nth-child(3n+2){background:#fff}
+.bcard:nth-child(3n){background:var(--butter)}
+.bnum{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;
+      display:block;margin-bottom:14px;color:var(--red)}
+.bcard h3{font-family:var(--display);text-transform:uppercase;font-size:1.3rem;line-height:.98;
+          letter-spacing:.01em;margin:0 0 10px;font-weight:400}
+.bcard p{margin:0;font-size:.93rem;color:rgba(20,33,46,.8)}
 
 /* ============================================================
-   MENU
+   MENU — olive, like the tables
    ============================================================ */
-.menu{background:var(--aegean);color:var(--foam);position:relative}
-.menu .eyebrow{color:var(--gold-hot)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,66px);margin-top:clamp(32px,4vw,50px)}
+.menu{background:var(--olive);color:var(--cream)}
+.menu .eyebrow{color:var(--butter)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,60px);margin-top:clamp(30px,4vw,46px)}
 @media(max-width:860px){.menu-grid{grid-template-columns:1fr}}
-.mgroup+.mgroup{margin-top:38px}
-.mgroup h3{
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold-hot);margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid rgba(237,243,242,.22);font-weight:500;
-}
-.mitem{padding:13px 0;border-bottom:1px solid rgba(237,243,242,.11)}
+.mgroup+.mgroup{margin-top:34px}
+.mgroup h3{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--butter);margin:0 0 14px;padding-bottom:9px;border-bottom:2px solid rgba(246,241,229,.3);font-weight:500}
+.mitem{padding:12px 0;border-bottom:1px solid rgba(246,241,229,.14)}
 .mitem:last-child{border-bottom:0}
-.mitem b{font-family:var(--display);font-weight:600;font-size:1.1rem;letter-spacing:-.01em;display:block}
-.mitem > span{display:block;font-size:.88rem;color:rgba(237,243,242,.68);margin-top:3px}
-.tag{
-  display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
-  background:var(--gold);color:var(--coal);padding:3px 8px;border-radius:2px;margin-left:8px;vertical-align:2px;font-weight:500;
-}
-.special{
-  margin-top:clamp(34px,4vw,48px);padding:clamp(22px,2.6vw,32px);
-  border:2px dashed var(--gold-hot);border-radius:3px;
-  display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-}
-.special b{font-family:var(--display);font-size:clamp(1.35rem,2.6vw,2rem);font-weight:700;display:block;line-height:1.05;font-variation-settings:"WONK" 1}
-.special span{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hot);display:block;margin-top:8px}
+.mitem b{font-family:var(--display);text-transform:uppercase;font-size:1.15rem;letter-spacing:.01em;display:block;font-weight:400}
+.mitem>span{display:block;font-size:.88rem;color:rgba(246,241,229,.75);margin-top:3px}
+.tag{display:inline-block;font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--butter);color:var(--ink);padding:3px 7px;margin-left:8px;vertical-align:3px;font-weight:500}
+.special{margin-top:clamp(32px,4vw,44px);padding:clamp(20px,2.5vw,30px);
+  border:3px dashed var(--butter);display:flex;gap:22px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.special b{font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(1.4rem,2.8vw,2.2rem);display:block;line-height:.96;font-weight:400}
+.special span{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--butter);display:block;margin-top:8px}
 
 /* ============================================================
-   SUNDAY LAMB — scarcity + capture #2
+   SUNDAY — deep red
    ============================================================ */
-.sunday{background:var(--coal);color:var(--foam);position:relative;overflow:hidden}
-.sunday::before{
-  content:"";position:absolute;left:50%;top:-30%;width:min(760px,120vw);aspect-ratio:1;transform:translateX(-50%);
-  background:radial-gradient(circle,rgba(226,163,43,.16),transparent 62%);pointer-events:none;
-}
-.sunday-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4.5vw,64px);align-items:center}
+.sunday{background:#A62A1E;color:var(--cream);position:relative}
+.sunday-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4.5vw,60px);align-items:center}
 @media(max-width:900px){.sunday-in{grid-template-columns:1fr}}
-.sunday p{color:rgba(237,243,242,.78)}
-.scarcity{
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--gold);border:1px solid var(--gold);display:inline-block;padding:7px 12px;border-radius:2px;margin-bottom:20px;
-}
+.sunday p{color:rgba(246,241,229,.85)}
+.scarcity{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);background:var(--butter);display:inline-block;padding:7px 12px;margin-bottom:18px;
+  border:2.5px solid var(--ink);transform:rotate(-2deg)}
 
-/* ---------- 6. THE DOCKET (data capture) ---------- */
-.docket{
-  background:var(--pita);color:var(--coal);border-radius:3px;padding:30px 28px 26px;
-  position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.75);
-  font-family:var(--mono);
-}
-.docket::before,.docket::after{
-  content:"";position:absolute;left:0;right:0;height:12px;
-  background-image:radial-gradient(circle at 6px 6px,transparent 5px,var(--pita) 5.5px);
-  background-size:12px 12px;
-}
-.docket::before{top:-11px;transform:scaleY(-1)}
-.docket::after{bottom:-11px}
-.dk-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,21,18,.55);border-bottom:1px dashed rgba(28,21,18,.35);padding-bottom:10px;margin-bottom:18px}
-.docket h3{font-family:var(--display);font-variation-settings:"WONK" 1;font-size:clamp(1.35rem,2.4vw,1.75rem);line-height:1.06;margin:0 0 10px;font-weight:700;letter-spacing:-.02em}
-.dk-list{list-style:none;margin:0 0 20px;padding:0;font-size:.82rem;line-height:1.5}
+/* ---------- docket ---------- */
+.docket{background:var(--paper);color:var(--ink);padding:28px 26px 24px;position:relative;
+        border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);font-family:var(--mono)}
+.dk-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.58rem;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(20,33,46,.6);border-bottom:2px dashed rgba(20,33,46,.35);padding-bottom:10px;margin-bottom:16px}
+.docket h3{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.4rem,2.4vw,1.85rem);
+  line-height:.96;margin:0 0 12px;font-weight:400}
+.dk-list{list-style:none;margin:0 0 18px;padding:0;font-size:.8rem;line-height:1.5}
 .dk-list li{padding-left:22px;position:relative;margin-bottom:8px}
-.dk-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--aegean);font-weight:700}
+.dk-list li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--red);font-weight:700}
 .field{margin-bottom:10px}
-.field label{display:block;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,21,18,.6);margin-bottom:5px}
-.field input{
-  width:100%;padding:12px 13px;border:1px solid rgba(28,21,18,.28);border-radius:2px;
-  background:rgba(255,255,255,.65);font-family:var(--mono);font-size:.92rem;color:var(--coal);
-}
-.field input:focus{outline:2px solid var(--aegean);outline-offset:1px;background:#fff}
+.field label{display:block;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,33,46,.65);margin-bottom:5px}
+.field input{width:100%;padding:12px 13px;border:2px solid var(--ink);background:#fff;
+  font-family:var(--mono);font-size:.92rem;color:var(--ink);border-radius:0}
+.field input:focus{outline:3px solid var(--red);outline-offset:1px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:520px){.field-row{grid-template-columns:1fr}}
 .docket .btn{width:100%;margin-top:8px}
-.dk-fine{font-size:.6rem;line-height:1.5;color:rgba(28,21,18,.55);margin:12px 0 0;text-align:center;letter-spacing:.02em}
-.dk-err{color:#9B2C15;font-size:.68rem;margin:8px 0 0;min-height:1em;letter-spacing:.04em}
-
-.dk-done{text-align:center;padding:6px 0 2px}
-.dk-done .code{
-  font-size:clamp(1.2rem,3vw,1.7rem);letter-spacing:.14em;font-weight:500;color:var(--coal);
-  border:2px dashed var(--aegean);padding:14px 10px;border-radius:2px;margin:16px 0 14px;background:rgba(255,255,255,.5);
-}
-.dk-done h3{margin-bottom:8px}
-.dk-done p{font-size:.8rem;line-height:1.55;color:rgba(28,21,18,.7);margin:0 0 6px}
+.dk-fine{font-size:.58rem;line-height:1.5;color:rgba(20,33,46,.6);margin:12px 0 0;text-align:center}
+.dk-err{color:#9B2C15;font-size:.68rem;margin:8px 0 0;min-height:1em}
+.dk-done{text-align:center;padding:4px 0 2px}
+.dk-done .code{font-size:clamp(1.15rem,3vw,1.6rem);letter-spacing:.12em;color:var(--ink);
+  border:3px dashed var(--red);padding:14px 10px;margin:14px 0;background:#fff}
+.dk-done p{font-size:.8rem;line-height:1.55;color:rgba(20,33,46,.75);margin:0 0 6px}
 
 /* ============================================================
-   7. TESTIMONIALS
+   SOCIAL
    ============================================================ */
-.social{background:var(--foam)}
-.bigquote{
-  font-family:var(--display);font-variation-settings:"WONK" 1;
-  font-size:clamp(1.6rem,4.1vw,3.05rem);line-height:1.08;letter-spacing:-.025em;font-weight:600;
-  margin:0;max-width:19ch;
-}
-.bigquote em{font-style:italic;color:var(--aegean)}
-.quote-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,60px);align-items:center}
+.social{background:var(--cream)}
+.bigquote{font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(1.7rem,4.4vw,3.3rem);line-height:.94;margin:0;max-width:17ch;font-weight:400}
+.bigquote em{font-style:normal;color:var(--red)}
+.quote-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,56px);align-items:center}
 @media(max-width:900px){.quote-grid{grid-template-columns:1fr}}
-.attrib{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--shallow);margin-top:22px}
-.vidwall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(36px,4vw,54px)}
+.attrib{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-top:20px}
+.vidwall{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(34px,4vw,50px)}
 @media(max-width:700px){.vidwall{grid-template-columns:1fr}}
-.vidwall .videoslot{aspect-ratio:4/5;border-color:var(--line)}
-.vidwall .videoslot b{font-size:.98rem}
-.vidwall .play{width:48px;height:48px}
-.vidwall .play svg{width:16px;height:16px}
+.vidwall .videoslot{aspect-ratio:4/5}
+.vidwall .videoslot b{font-size:1rem}
+.vidwall .play{width:46px;height:46px}
+.vidwall .play svg{width:15px;height:15px}
 
 /* ============================================================
-   8. MORE REASONS
+   REASONS
    ============================================================ */
-.reasons{background:var(--deep);color:var(--foam)}
-.reasons .eyebrow{color:var(--gold)}
-.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:clamp(30px,4vw,46px)}
-.rcard{background:var(--deep);padding:clamp(24px,2.6vw,32px)}
-.rcard h3{font-family:var(--display);font-variation-settings:"WONK" 1;font-size:1.15rem;font-weight:700;margin:0 0 10px;letter-spacing:-.012em}
-.rcard p{margin:0;font-size:.92rem;color:rgba(237,243,242,.7)}
-.press{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,3vw,40px)}
-.press span{
-  font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
-  border:1px solid var(--line-dark);padding:9px 14px;border-radius:2px;color:rgba(237,243,242,.65);
-}
+.reasons{background:var(--blue);color:var(--cream)}
+.reasons .eyebrow{color:var(--butter)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:clamp(28px,4vw,42px)}
+.rcard{background:rgba(20,33,46,.3);border:2.5px solid var(--cream);padding:clamp(22px,2.4vw,30px)}
+.rcard h3{font-family:var(--display);text-transform:uppercase;font-size:1.2rem;line-height:1;
+          margin:0 0 10px;font-weight:400;color:var(--butter)}
+.rcard p{margin:0;font-size:.92rem;color:rgba(246,241,229,.8)}
+.press{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(26px,3vw,38px)}
+.press span{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
+  border:2px solid rgba(246,241,229,.4);padding:8px 13px;color:rgba(246,241,229,.75)}
 
 /* ============================================================
-   FIND THE DOOR
+   FIND
    ============================================================ */
-.find{background:var(--foam)}
-.find-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,4.5vw,64px);align-items:start}
+.find{background:var(--cream)}
+.find-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,4.5vw,60px);align-items:start}
 @media(max-width:920px){.find-grid{grid-template-columns:1fr}}
-.info{border-top:1px solid var(--line);margin-top:26px}
-.info div{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.info dt,.info b.k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--shallow);font-weight:400}
+.info{border-top:3px solid var(--ink);margin-top:24px}
+.info div{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.info b.k{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:400}
 .info .v{font-size:.98rem}
-.info .v a{color:var(--aegean)}
+.info .v a{color:var(--blue);font-weight:600}
 @media(max-width:520px){.info div{grid-template-columns:1fr;gap:5px}}
-.find .plan-card{background:transparent;border:0;padding:0}
-.find .plan-card h3{color:var(--aegean)}
-.find .plan-card p.plan-sub{color:rgba(4,40,58,.66)}
-.find .dot-grey{background:rgba(4,40,58,.3)}
+.find .plan-card{background:#fff}
 
 /* ============================================================
-   FOOTER + sticky mobile bar
+   FOOTER + sticky bar
    ============================================================ */
-.foot{background:var(--coal);color:rgba(237,243,242,.65);padding:clamp(46px,5vw,68px) 0 130px;font-size:.86rem}
+.foot{background:var(--ink);color:rgba(246,241,229,.7);padding:clamp(44px,5vw,64px) 0 130px;font-size:.86rem}
 .foot-in{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
-.foot a{color:var(--gold);text-decoration:none}
+.foot a{color:var(--butter);text-decoration:none}
 .foot a:hover{text-decoration:underline}
 .foot-links{display:flex;flex-direction:column;gap:9px}
-.foot .brand b{font-size:1.3rem}
-.disclaim{margin-top:34px;padding-top:20px;border-top:1px solid rgba(237,243,242,.12);font-size:.72rem;color:rgba(237,243,242,.42);max-width:70ch}
-
-.stickybar{
-  position:fixed;left:0;right:0;bottom:0;z-index:70;
-  background:rgba(28,21,18,.96);backdrop-filter:blur(10px);
-  border-top:1px solid rgba(226,163,43,.35);
-  padding:11px var(--pad);display:flex;gap:10px;align-items:center;
-}
+.foot .brand b{font-size:1.5rem;color:var(--cream)}
+.disclaim{margin-top:32px;padding-top:18px;border-top:1px solid var(--line-lt);
+  font-size:.72rem;color:rgba(246,241,229,.45);max-width:70ch}
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--ink);
+  border-top:3px solid var(--butter);padding:10px var(--pad);display:flex;gap:10px;align-items:center}
 .stickybar .sb-text{flex:1;min-width:0}
-.stickybar b{display:block;font-family:var(--display);font-size:.95rem;color:var(--foam);line-height:1.1;font-weight:600}
-.stickybar small{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-.stickybar .btn{padding:12px 18px;font-size:.82rem;flex:none}
-@media(min-width:900px){.stickybar{display:none}.foot{padding-bottom:clamp(46px,5vw,68px)}}
+.stickybar b{display:block;font-family:var(--display);text-transform:uppercase;font-size:1.05rem;color:var(--cream);line-height:1}
+.stickybar small{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--butter)}
+.stickybar .btn{padding:11px 16px;font-size:.8rem;flex:none;box-shadow:3px 3px 0 var(--butter);border-color:var(--butter)}
+@media(min-width:900px){.stickybar{display:none}.foot{padding-bottom:clamp(44px,5vw,64px)}}
 
 /* ---------- reveal ---------- */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 </style>
@@ -488,16 +406,16 @@ a{color:inherit}
   <div class="hero-grid">
 
     <div>
-      <p class="eyebrow">Nobby Beach · inside the Village Market</p>
+      <p class="eyebrow">Nobby Beach · back of the Atrium</p>
 
       <h1 class="h-xl">You've never<br>walked far<br>enough.</h1>
 
       <p class="kicker">The Gold Coast's worst-signposted lamb.</p>
 
       <p class="hero-copy">
-        Walk into The Oxley 1823, past the seating, into the Village Market — and keep going. Right
-        at the back, past the fresh produce, there's a spit turning lamb and chicken over coals, and a
-        bloke rolling pita by hand every morning.
+        In the front entrance at The Oxley 1823, beside Buoy, and just keep walking — past the big tree,
+        up the aisle past the flowers and the fruit and veg, all the way to the very end. Then turn left. Right at the back there's a spit turning lamb and chicken over
+        coals, a bloke rolling pita by hand every morning, and tables you can actually sit at.
         <strong>No frozen meat cone. No pita off a truck. No shortcuts.</strong>
         You just have to know to keep walking.
       </p>
@@ -507,6 +425,7 @@ a{color:inherit}
         <a class="btn btn-ghost" href="#difference" style="color:var(--foam)">See what's different</a>
       </div>
       <p class="microcta">Takes 20 seconds · First visit only · Nothing posted to you</p>
+      <p style="margin:18px 0 0"><span class="sticker">Open 7 days · 11am–8pm</span></p>
 
       <div class="trustbar">
         <div class="trust"><b class="stars">★★★★</b><span>Google rating</span></div>
@@ -520,104 +439,129 @@ a{color:inherit}
       <!-- SIGNATURE ELEMENT: the hidden-door floorplan -->
       <div class="plan-card">
         <h3>How to actually find us</h3>
-        <p class="plan-sub">It’s the back corner of the grocery hall. Nobody expects that.</p>
+        <p class="plan-sub">Far end on the left, past everything else.</p>
         <div class="napkin-wrap">
           <div class="napkin">
-            <svg viewBox="0 0 430 492" role="img" aria-label="Hand-drawn floorplan of The Oxley 1823. In the front entrance from Lavarack Road, past the central seating, into the Village Market which takes up most of the building, then all the way up past the fresh produce and turn left at the very end. Mr Spiros is the back left corner. Oakberry and BSKT are on the same side; Papa Luigi's, Bobby Bang's and Buoy are along the right.">
+            <svg viewBox="0 0 430 492" role="img" aria-label="Hand-drawn floorplan of The Oxley 1823. From Lavarack Road you come in the front entrance beside Buoy, walk past Bobby Bang's and Giuseppe's Deli on your right and the big tree and seating on your left, then up the central aisle past the flowers, the cards and the fruit and veg. Oakberry and BSKT are on your left. At the very end you turn left into Mr Spiros, which has its own tables out front.">
               <defs>
                 <filter id="wob" x="-8%" y="-8%" width="116%" height="116%">
                   <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="7" result="n"/>
-                  <feDisplacementMap in="SourceGraphic" in2="n" scale="2.3" xChannelSelector="R" yChannelSelector="G"/>
+                  <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
                 </filter>
               </defs>
 
-              <g filter="url(#wob)" fill="none" stroke="#1C1512" stroke-width="2.1"
+              <g filter="url(#wob)" fill="none" stroke="#1C1512" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round" opacity=".88">
-                <!-- shell, with a gap at the front entrance -->
-                <path d="M38 54 C150 50 280 52 392 56 C397 160 396 300 391 410 L348 412"/>
-                <path d="M296 412 L39 409 C34 300 34 160 38 54"/>
+                <!-- shell, gap at the front entrance beside Buoy -->
+                <path d="M65 54 C160 50 280 52 365 56 C369 160 368 300 364 410 L296 411"/>
+                <path d="M248 410 L66 409 C61 300 61 160 65 54"/>
 
-                <!-- the left strip: Mr Spiros, produce, Oakberry, BSKT -->
-                <path d="M186 54 C187 64 187 74 187 82"/>
-                <path d="M187 112 C188 180 187 240 186 301"/>
-                <path d="M39 301 L186 301"/>
-                <path d="M40 113 C90 110 140 111 186 113" stroke-width="2.5"/>
-                <path d="M40 229 C90 226 140 227 186 229" stroke-width="1.5"/>
-                <!-- squiggle divider, as drawn -->
-                <path d="M42 173 q9 -8 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0" stroke-width="1.5" opacity=".7"/>
+                <!-- Mr Spiros, door on its right onto the tables -->
+                <path d="M184 54 C185 62 185 70 184 76" stroke-width="2.3"/>
+                <path d="M184 104 C185 112 185 116 184 120" stroke-width="2.3"/>
+                <path d="M66 120 C110 118 150 119 184 120" stroke-width="2.3"/>
 
-                <!-- right column tenancies -->
-                <path d="M292 56 C294 150 293 240 292 301"/>
-                <path d="M292 301 L391 301"/>
-                <path d="M293 148 L391 150" stroke-width="1.5"/>
-                <path d="M293 230 L391 232" stroke-width="1.5"/>
+                <!-- the left run: fruit &amp; veg wall, Oakberry, BSKT -->
+                <path d="M177 120 C178 160 177 200 177 236" stroke-width="1.9"/>
+                <path d="M66 236 C110 234 145 235 177 236" stroke-width="1.9"/>
+                <path d="M66 153 L177 153" stroke-width="1.5"/>
+                <path d="M66 200 L177 200" stroke-width="1.5"/>
 
-                <!-- village market blob -->
-                <path d="M254 82 C286 84 292 130 291 190 C290 250 284 292 252 292
-                         C222 292 214 250 215 190 C216 130 224 82 254 82"
-                      stroke-width="1.6" opacity=".55"/>
+                <!-- right-hand tenancies -->
+                <path d="M293 54 C295 160 294 290 293 410" stroke-width="1.9"/>
+                <path d="M293 117 L364 118 M293 230 L364 231 M293 317 L364 318" stroke-width="1.5"/>
 
-                <!-- fresh produce crate -->
-                <path d="M132 158 v-24 h44 v24 z M132 146 h44"/>
-                <circle cx="145" cy="127" r="7"/><circle cx="164" cy="127" r="7"/>
+                <!-- Mr Spiros' tables -->
+                <rect x="190" y="62" width="13" height="15" rx="2"/>
+                <path d="M185 67 v5 M208 67 v5"/>
+                <rect x="190" y="84" width="13" height="15" rx="2"/>
+                <path d="M185 89 v5 M208 89 v5"/>
+                <rect x="190" y="106" width="13" height="15" rx="2"/>
+                <path d="M185 111 v5 M208 111 v5"/>
+                <rect x="250" y="62" width="13" height="15" rx="2"/>
+                <path d="M245 67 v5 M268 67 v5"/>
+                <rect x="250" y="84" width="13" height="15" rx="2"/>
+                <path d="M245 89 v5 M268 89 v5"/>
+                <rect x="250" y="106" width="13" height="15" rx="2"/>
+                <path d="M245 111 v5 M268 111 v5"/>
 
-                <!-- central seating -->
-                <path d="M96 356 C96 328 148 320 202 320 C258 320 306 328 306 356
-                         C306 384 256 391 202 391 C148 391 96 384 96 356" stroke-width="1.7"/>
-                <circle cx="140" cy="352" r="8"/><circle cx="262" cy="352" r="8"/>
+                <!-- fruit &amp; veg display on the corner -->
+                <path d="M156 140 v-14 h16 v14 z" stroke-width="1.6"/>
+
+                <!-- flowers, then cards &amp; papers -->
+                <path d="M205 139 h27 v41 h-27 z" rx="3" stroke-width="1.6"/>
+                <path d="M250 136 h24 v28 h-24 z" stroke-width="1.6"/>
+                <path d="M252 140 l20 20 M252 150 l14 14 M258 138 l16 16" stroke-width="1" opacity=".5"/>
+                <rect x="205" y="190" width="12" height="14" rx="2"/>
+                <path d="M200 195 v5 M222 195 v5"/>
+                <rect x="205" y="214" width="12" height="14" rx="2"/>
+                <path d="M200 219 v5 M222 219 v5"/>
+                <rect x="250" y="190" width="12" height="14" rx="2"/>
+                <path d="M245 195 v5 M267 195 v5"/>
+                <rect x="250" y="214" width="12" height="14" rx="2"/>
+                <path d="M245 219 v5 M267 219 v5"/>
+
+                <!-- the tree in the atrium -->
+                <path d="M158 281 h80 v61 h-80 z" stroke-width="1.7"/>
+                <path d="M243 292 h12 v11 h-12 z M243 310 h12 v11 h-12 z M243 328 h12 v11 h-12 z" stroke-width="1.4"/>
+                <path d="M172 281 v-7 M186 281 v-9 M200 281 v-7 M214 281 v-9 M228 281 v-7" stroke-width="1.4"/>
 
                 <!-- road -->
-                <path d="M10 452 C140 448 290 449 420 453" stroke-width="1.6"/>
-                <path d="M34 464 h24 M88 465 h24 M142 465 h24 M196 466 h24 M250 466 h24 M304 467 h24 M358 467 h24"
+                <path d="M20 452 C150 448 300 449 410 453" stroke-width="1.6"/>
+                <path d="M40 464 h24 M94 465 h24 M148 465 h24 M202 466 h24 M256 466 h24 M310 467 h24"
                       stroke-width="1.4" opacity=".42"/>
-                <circle cx="321" cy="432" r="5" fill="#1C1512" stroke="none"/>
-                <!-- pointer to the front door -->
-                <path d="M282 428 C296 424 306 420 314 415" stroke-width="1.5"/>
-                <path d="M314 415 l-9 1 M314 415 l-1 9" stroke-width="1.5"/>
+                <circle cx="272" cy="432" r="5" fill="#1C1512" stroke="none"/>
+                <path d="M238 428 C250 424 259 420 266 415" stroke-width="1.5"/>
+                <path d="M266 415 l-9 1 M266 415 l-1 9" stroke-width="1.5"/>
               </g>
 
-              <!-- route -->
               <path class="route" filter="url(#wob)"
-                    d="M321 426 L320 410 C319 394 322 384 318 366
-                       C314 344 300 326 276 312 C252 298 238 282 226 254
-                       C216 228 210 200 208 168 C206 140 212 124 216 112
-                       C220 100 210 96 198 96"
-                    fill="none" stroke="#0A5170" stroke-width="3.1"
+                    d="M272 426 L272 408 C272 392 262 380 258 358
+                       C254 336 252 310 250 286 C248 258 244 230 241 206
+                       C239 186 240 168 240 152 C240 134 232 120 218 110
+                       C206 101 198 95 190 92"
+                    fill="none" stroke="#0A5170" stroke-width="3"
                     stroke-linecap="round" stroke-dasharray="700" stroke-dashoffset="700"/>
-              <g class="ink-late i-arrow" fill="none" stroke="#0A5170" stroke-width="3.1"
+              <g class="ink-late i-arrow" fill="none" stroke="#0A5170" stroke-width="3"
                  stroke-linecap="round" stroke-linejoin="round">
-                <path d="M203 88 L188 97 L203 106"/>
+                <path d="M199 80 L183 90 L199 99"/>
               </g>
 
               <g class="ink-late i-blob">
-                <path d="M70 88 C70 74 98 70 124 70 C150 70 180 73 180 88
-                         C180 102 150 106 124 106 C98 106 70 102 70 88 Z"
+                <path d="M68 88 C68 75 96 71 120 71 C144 71 173 74 173 88
+                         C173 101 144 105 120 105 C96 105 68 101 68 88 Z"
                       fill="#E2A32B" opacity=".42"/>
               </g>
-              <g class="ink-late i-x" filter="url(#wob)" stroke="#1C1512" stroke-width="4.6"
+              <g class="ink-late i-x" filter="url(#wob)" stroke="#1C1512" stroke-width="4.2"
                  stroke-linecap="round" fill="none">
-                <path d="M46 76 L64 96 M64 76 L46 96"/>
+                <path d="M74 80 L88 96 M88 80 L74 96"/>
               </g>
 
               <g font-family="Caveat, cursive" fill="#1C1512">
-                <text x="56" y="36" font-size="18" font-weight="600" opacity=".82">turn left at the very end!</text>
-                <text x="76" y="96" font-size="21" font-weight="700">MR SPIROS</text>
+                <text x="70" y="38" font-size="17" font-weight="600" opacity=".82">turn left at the very end!</text>
+                <text x="96" y="95" font-size="18" font-weight="700">MR SPIROS</text>
 
-                <text x="46" y="152" font-size="17" opacity=".8">fresh produce</text>
-                <text x="46" y="208" font-size="17" opacity=".8">Oakberry</text>
-                <text x="46" y="268" font-size="17" opacity=".8">BSKT</text>
+                <text x="84" y="146" font-size="15" opacity=".76">fruit &amp; veg</text>
+                <text x="70" y="182" font-size="16" opacity=".78">OAKBERRY</text>
+                <text x="70" y="224" font-size="16" opacity=".78">BSKT</text>
 
-                <text x="253" y="180" text-anchor="middle" font-size="20" font-weight="700">VILLAGE</text>
-                <text x="253" y="202" text-anchor="middle" font-size="20" font-weight="700">MARKET</text>
+                <text x="218" y="164" text-anchor="middle" font-size="13.5" opacity=".72" transform="rotate(-90 218 160)">flowers</text>
+                <text x="250" y="130" font-size="13.5" opacity=".72">cards</text>
 
-                <text x="300" y="106" font-size="16.5" opacity=".72">Papa Luigi&#8217;s</text>
-                <text x="300" y="196" font-size="16.5" opacity=".72">Bobby Bang&#8217;s</text>
-                <text x="300" y="272" font-size="16.5" opacity=".72">Buoy</text>
+                <text x="299" y="92" font-size="15" opacity=".62">vacant</text>
+                <text x="299" y="166" font-size="15" opacity=".76">Giuseppe&#8217;s</text>
+                <text x="299" y="182" font-size="15" opacity=".76">Deli</text>
+                <text x="299" y="266" font-size="15" opacity=".76">Bobby</text>
+                <text x="299" y="282" font-size="15" opacity=".76">Bang&#8217;s</text>
+                <text x="299" y="368" font-size="16" opacity=".78">Buoy</text>
 
-                <text x="202" y="362" text-anchor="middle" font-size="18" opacity=".8">seating</text>
+                <text x="198" y="316" text-anchor="middle" font-size="16" opacity=".76">tree</text>
+                <text x="76" y="330" font-size="14.5" opacity=".72">tables &amp;</text>
+                <text x="76" y="346" font-size="14.5" opacity=".72">chairs</text>
+                <text x="150" y="392" font-size="14.5" opacity=".72">tables &amp; chairs</text>
 
-                <text x="272" y="440" text-anchor="end" font-size="17" font-weight="600">in the front entrance</text>
-                <text x="336" y="440" font-size="16" opacity=".8">you&#8217;re here</text>
+                <text x="232" y="440" text-anchor="end" font-size="16" font-weight="600">in the front entrance</text>
+                <text x="288" y="440" font-size="15" opacity=".8">you&#8217;re here</text>
                 <text x="215" y="486" text-anchor="middle" font-size="16"
                       letter-spacing="2" opacity=".6">LAVARACK RD</text>
               </g>
@@ -639,8 +583,10 @@ a{color:inherit}
   </div>
 </header>
 
+<div class="marquee" aria-hidden="true"><div><span>Spit roasted <i>&#9670;</i></span><span>Hand rolled pita <i>&#9670;</i></span><span>Triple cooked chips <i>&#9670;</i></span><span>No shortcuts <i>&#9670;</i></span><span>Back of the atrium <i>&#9670;</i></span><span>Spit roasted <i>&#9670;</i></span><span>Hand rolled pita <i>&#9670;</i></span><span>Triple cooked chips <i>&#9670;</i></span><span>No shortcuts <i>&#9670;</i></span><span>Back of the atrium <i>&#9670;</i></span></div></div>
+
 <!-- ==================== 2. PROBLEM / AGITATE ==================== -->
-<section class="sect compare" id="difference">
+<section class="sect compare on-dark" id="difference">
   <div class="wrap">
     <div class="compare-intro rv">
       <div>
@@ -737,14 +683,14 @@ a{color:inherit}
       <div class="bcard">
         <span class="bnum">Quiet</span>
         <h3>A seat, even at 12:30</h3>
-        <p>Being behind the fruit and veg has one advantage: while the front of the precinct is three-deep, you're already eating.</p>
+        <p>Being at the far end has one advantage: while the front of the precinct is three-deep, you're at a table out the front of ours, already eating.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==================== MENU ==================== -->
-<section class="sect menu" id="menu">
+<section class="sect menu on-dark" id="menu">
   <div class="wrap">
     <p class="eyebrow rv">The whole menu · nothing hidden</p>
     <h2 class="h-lg rv" style="max-width:22ch">Two proteins. One way. Done properly.</h2>
@@ -810,7 +756,7 @@ a{color:inherit}
 </section>
 
 <!-- ==================== SUNDAY LAMB — scarcity + list ==================== -->
-<section class="sect sunday" id="sunday">
+<section class="sect sunday on-dark" id="sunday">
   <div class="wrap sunday-in">
     <div class="rv">
       <span class="scarcity">Not every Sunday · not many serves</span>
@@ -866,7 +812,7 @@ a{color:inherit}
           <h3>Done. Now find the door.</h3>
           <p>Show this at the counter with your first yiros and the chips are on us.</p>
           <div class="code" id="dk-code">SPIROS-0000</div>
-          <p><b>Where:</b> back corner of the Village Market,<br>The Oxley 1823. Walk in, keep going, turn left.</p>
+          <p><b>Where:</b> back of the Atrium,<br>The Oxley 1823. Walk in, keep going, turn left.</p>
           <p style="margin-top:12px">The guide is in your inbox. The Sunday lamb will come by text.</p>
         </div>
       </div>
@@ -921,7 +867,7 @@ a{color:inherit}
 </section>
 
 <!-- ==================== 8. MORE REASONS ==================== -->
-<section class="sect reasons" id="story">
+<section class="sect reasons on-dark" id="story">
   <div class="wrap">
     <p class="eyebrow rv">Why this bloke, and why here</p>
     <h2 class="h-lg rv" style="max-width:24ch">Mr Spiros isn't real. Everything he stands for is.</h2>
@@ -946,7 +892,7 @@ a{color:inherit}
       </div>
       <div class="rcard">
         <h3>Walls the colour of the Aegean</h3>
-        <p>It's a small room at the back of a 1,000sqm grocery hall, painted the blue of the sea Peter's family came from. It seats a fraction of what the front of the precinct does. That's deliberate.</p>
+        <p>It's a small room at the far end of a 4,000sqm precinct, painted the blue of the sea Peter's family came from. It seats a fraction of what the front of the precinct does. That's deliberate.</p>
       </div>
     </div>
 
@@ -966,13 +912,13 @@ a{color:inherit}
       <p class="eyebrow">Don't stop at the front</p>
       <h2 class="h-lg">Find the door.</h2>
       <p class="lede" style="margin-top:18px;color:rgba(4,40,58,.75)">
-        In the front entrance on Lavarack Road, past the seating, through the Village Market and
-        all the way to the back corner. Then turn left. If you can smell coals, you've arrived.
+        In the front entrance on Lavarack Road, then straight up through the room — past the tree, up the
+        aisle past the flowers and the fruit and veg, right to the very end. Then turn left. If you can smell coals, you've arrived.
       </p>
 
       <div class="info">
         <!-- CONFIRM: exact street number formatting, phone number, trading hours -->
-        <div><b class="k">Where</b><span class="v">Back left corner of the Village Market<br>The Oxley 1823, 17 Lavarack Road<br>Nobby Beach QLD</span></div>
+        <div><b class="k">Where</b><span class="v">Back of the Atrium<br>The Oxley 1823, 17 Lavarack Road<br>Nobby Beach QLD</span></div>
         <div><b class="k">Hours</b><span class="v">Daily, 11am – 8pm</span></div>
         <div><b class="k">Order in</b><span class="v"><a href="https://www.ubereats.com/" target="_blank" rel="noopener">Uber Eats →</a></span></div>
         <div><b class="k">Instagram</b><span class="v"><a href="https://www.instagram.com/mrspiroshandmadeyiros/" target="_blank" rel="noopener">@mrspiroshandmadeyiros →</a></span></div>
@@ -992,101 +938,126 @@ a{color:inherit}
         <p class="plan-sub">Under a minute from the footpath.</p>
         <div class="napkin-wrap">
           <div class="napkin">
-            <svg viewBox="0 0 430 492" role="img" aria-label="Hand-drawn floorplan of The Oxley 1823. In the front entrance from Lavarack Road, past the central seating, into the Village Market which takes up most of the building, then all the way up past the fresh produce and turn left at the very end. Mr Spiros is the back left corner. Oakberry and BSKT are on the same side; Papa Luigi's, Bobby Bang's and Buoy are along the right.">
+            <svg viewBox="0 0 430 492" role="img" aria-label="Hand-drawn floorplan of The Oxley 1823. From Lavarack Road you come in the front entrance beside Buoy, walk past Bobby Bang's and Giuseppe's Deli on your right and the big tree and seating on your left, then up the central aisle past the flowers, the cards and the fruit and veg. Oakberry and BSKT are on your left. At the very end you turn left into Mr Spiros, which has its own tables out front.">
               <defs>
                 <filter id="wob2" x="-8%" y="-8%" width="116%" height="116%">
                   <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="23" result="n"/>
-                  <feDisplacementMap in="SourceGraphic" in2="n" scale="2.3" xChannelSelector="R" yChannelSelector="G"/>
+                  <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
                 </filter>
               </defs>
 
-              <g filter="url(#wob2)" fill="none" stroke="#1C1512" stroke-width="2.1"
+              <g filter="url(#wob2)" fill="none" stroke="#1C1512" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round" opacity=".88">
-                <!-- shell, with a gap at the front entrance -->
-                <path d="M38 54 C150 50 280 52 392 56 C397 160 396 300 391 410 L348 412"/>
-                <path d="M296 412 L39 409 C34 300 34 160 38 54"/>
+                <!-- shell, gap at the front entrance beside Buoy -->
+                <path d="M65 54 C160 50 280 52 365 56 C369 160 368 300 364 410 L296 411"/>
+                <path d="M248 410 L66 409 C61 300 61 160 65 54"/>
 
-                <!-- the left strip: Mr Spiros, produce, Oakberry, BSKT -->
-                <path d="M186 54 C187 64 187 74 187 82"/>
-                <path d="M187 112 C188 180 187 240 186 301"/>
-                <path d="M39 301 L186 301"/>
-                <path d="M40 113 C90 110 140 111 186 113" stroke-width="2.5"/>
-                <path d="M40 229 C90 226 140 227 186 229" stroke-width="1.5"/>
-                <!-- squiggle divider, as drawn -->
-                <path d="M42 173 q9 -8 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0" stroke-width="1.5" opacity=".7"/>
+                <!-- Mr Spiros, door on its right onto the tables -->
+                <path d="M184 54 C185 62 185 70 184 76" stroke-width="2.3"/>
+                <path d="M184 104 C185 112 185 116 184 120" stroke-width="2.3"/>
+                <path d="M66 120 C110 118 150 119 184 120" stroke-width="2.3"/>
 
-                <!-- right column tenancies -->
-                <path d="M292 56 C294 150 293 240 292 301"/>
-                <path d="M292 301 L391 301"/>
-                <path d="M293 148 L391 150" stroke-width="1.5"/>
-                <path d="M293 230 L391 232" stroke-width="1.5"/>
+                <!-- the left run: fruit &amp; veg wall, Oakberry, BSKT -->
+                <path d="M177 120 C178 160 177 200 177 236" stroke-width="1.9"/>
+                <path d="M66 236 C110 234 145 235 177 236" stroke-width="1.9"/>
+                <path d="M66 153 L177 153" stroke-width="1.5"/>
+                <path d="M66 200 L177 200" stroke-width="1.5"/>
 
-                <!-- village market blob -->
-                <path d="M254 82 C286 84 292 130 291 190 C290 250 284 292 252 292
-                         C222 292 214 250 215 190 C216 130 224 82 254 82"
-                      stroke-width="1.6" opacity=".55"/>
+                <!-- right-hand tenancies -->
+                <path d="M293 54 C295 160 294 290 293 410" stroke-width="1.9"/>
+                <path d="M293 117 L364 118 M293 230 L364 231 M293 317 L364 318" stroke-width="1.5"/>
 
-                <!-- fresh produce crate -->
-                <path d="M132 158 v-24 h44 v24 z M132 146 h44"/>
-                <circle cx="145" cy="127" r="7"/><circle cx="164" cy="127" r="7"/>
+                <!-- Mr Spiros' tables -->
+                <rect x="190" y="62" width="13" height="15" rx="2"/>
+                <path d="M185 67 v5 M208 67 v5"/>
+                <rect x="190" y="84" width="13" height="15" rx="2"/>
+                <path d="M185 89 v5 M208 89 v5"/>
+                <rect x="190" y="106" width="13" height="15" rx="2"/>
+                <path d="M185 111 v5 M208 111 v5"/>
+                <rect x="250" y="62" width="13" height="15" rx="2"/>
+                <path d="M245 67 v5 M268 67 v5"/>
+                <rect x="250" y="84" width="13" height="15" rx="2"/>
+                <path d="M245 89 v5 M268 89 v5"/>
+                <rect x="250" y="106" width="13" height="15" rx="2"/>
+                <path d="M245 111 v5 M268 111 v5"/>
 
-                <!-- central seating -->
-                <path d="M96 356 C96 328 148 320 202 320 C258 320 306 328 306 356
-                         C306 384 256 391 202 391 C148 391 96 384 96 356" stroke-width="1.7"/>
-                <circle cx="140" cy="352" r="8"/><circle cx="262" cy="352" r="8"/>
+                <!-- fruit &amp; veg display on the corner -->
+                <path d="M156 140 v-14 h16 v14 z" stroke-width="1.6"/>
+
+                <!-- flowers, then cards &amp; papers -->
+                <path d="M205 139 h27 v41 h-27 z" rx="3" stroke-width="1.6"/>
+                <path d="M250 136 h24 v28 h-24 z" stroke-width="1.6"/>
+                <path d="M252 140 l20 20 M252 150 l14 14 M258 138 l16 16" stroke-width="1" opacity=".5"/>
+                <rect x="205" y="190" width="12" height="14" rx="2"/>
+                <path d="M200 195 v5 M222 195 v5"/>
+                <rect x="205" y="214" width="12" height="14" rx="2"/>
+                <path d="M200 219 v5 M222 219 v5"/>
+                <rect x="250" y="190" width="12" height="14" rx="2"/>
+                <path d="M245 195 v5 M267 195 v5"/>
+                <rect x="250" y="214" width="12" height="14" rx="2"/>
+                <path d="M245 219 v5 M267 219 v5"/>
+
+                <!-- the tree in the atrium -->
+                <path d="M158 281 h80 v61 h-80 z" stroke-width="1.7"/>
+                <path d="M243 292 h12 v11 h-12 z M243 310 h12 v11 h-12 z M243 328 h12 v11 h-12 z" stroke-width="1.4"/>
+                <path d="M172 281 v-7 M186 281 v-9 M200 281 v-7 M214 281 v-9 M228 281 v-7" stroke-width="1.4"/>
 
                 <!-- road -->
-                <path d="M10 452 C140 448 290 449 420 453" stroke-width="1.6"/>
-                <path d="M34 464 h24 M88 465 h24 M142 465 h24 M196 466 h24 M250 466 h24 M304 467 h24 M358 467 h24"
+                <path d="M20 452 C150 448 300 449 410 453" stroke-width="1.6"/>
+                <path d="M40 464 h24 M94 465 h24 M148 465 h24 M202 466 h24 M256 466 h24 M310 467 h24"
                       stroke-width="1.4" opacity=".42"/>
-                <circle cx="321" cy="432" r="5" fill="#1C1512" stroke="none"/>
-                <!-- pointer to the front door -->
-                <path d="M282 428 C296 424 306 420 314 415" stroke-width="1.5"/>
-                <path d="M314 415 l-9 1 M314 415 l-1 9" stroke-width="1.5"/>
+                <circle cx="272" cy="432" r="5" fill="#1C1512" stroke="none"/>
+                <path d="M238 428 C250 424 259 420 266 415" stroke-width="1.5"/>
+                <path d="M266 415 l-9 1 M266 415 l-1 9" stroke-width="1.5"/>
               </g>
 
-              <!-- route -->
               <path class="route" filter="url(#wob2)"
-                    d="M321 426 L320 410 C319 394 322 384 318 366
-                       C314 344 300 326 276 312 C252 298 238 282 226 254
-                       C216 228 210 200 208 168 C206 140 212 124 216 112
-                       C220 100 210 96 198 96"
-                    fill="none" stroke="#0A5170" stroke-width="3.1"
+                    d="M272 426 L272 408 C272 392 262 380 258 358
+                       C254 336 252 310 250 286 C248 258 244 230 241 206
+                       C239 186 240 168 240 152 C240 134 232 120 218 110
+                       C206 101 198 95 190 92"
+                    fill="none" stroke="#0A5170" stroke-width="3"
                     stroke-linecap="round" stroke-dasharray="700" stroke-dashoffset="700"/>
-              <g class="ink-late i-arrow" fill="none" stroke="#0A5170" stroke-width="3.1"
+              <g class="ink-late i-arrow" fill="none" stroke="#0A5170" stroke-width="3"
                  stroke-linecap="round" stroke-linejoin="round">
-                <path d="M203 88 L188 97 L203 106"/>
+                <path d="M199 80 L183 90 L199 99"/>
               </g>
 
               <g class="ink-late i-blob">
-                <path d="M70 88 C70 74 98 70 124 70 C150 70 180 73 180 88
-                         C180 102 150 106 124 106 C98 106 70 102 70 88 Z"
+                <path d="M68 88 C68 75 96 71 120 71 C144 71 173 74 173 88
+                         C173 101 144 105 120 105 C96 105 68 101 68 88 Z"
                       fill="#E2A32B" opacity=".42"/>
               </g>
-              <g class="ink-late i-x" filter="url(#wob2)" stroke="#1C1512" stroke-width="4.6"
+              <g class="ink-late i-x" filter="url(#wob2)" stroke="#1C1512" stroke-width="4.2"
                  stroke-linecap="round" fill="none">
-                <path d="M46 76 L64 96 M64 76 L46 96"/>
+                <path d="M74 80 L88 96 M88 80 L74 96"/>
               </g>
 
               <g font-family="Caveat, cursive" fill="#1C1512">
-                <text x="56" y="36" font-size="18" font-weight="600" opacity=".82">turn left at the very end!</text>
-                <text x="76" y="96" font-size="21" font-weight="700">MR SPIROS</text>
+                <text x="70" y="38" font-size="17" font-weight="600" opacity=".82">turn left at the very end!</text>
+                <text x="96" y="95" font-size="18" font-weight="700">MR SPIROS</text>
 
-                <text x="46" y="152" font-size="17" opacity=".8">fresh produce</text>
-                <text x="46" y="208" font-size="17" opacity=".8">Oakberry</text>
-                <text x="46" y="268" font-size="17" opacity=".8">BSKT</text>
+                <text x="84" y="146" font-size="15" opacity=".76">fruit &amp; veg</text>
+                <text x="70" y="182" font-size="16" opacity=".78">OAKBERRY</text>
+                <text x="70" y="224" font-size="16" opacity=".78">BSKT</text>
 
-                <text x="253" y="180" text-anchor="middle" font-size="20" font-weight="700">VILLAGE</text>
-                <text x="253" y="202" text-anchor="middle" font-size="20" font-weight="700">MARKET</text>
+                <text x="218" y="164" text-anchor="middle" font-size="13.5" opacity=".72" transform="rotate(-90 218 160)">flowers</text>
+                <text x="250" y="130" font-size="13.5" opacity=".72">cards</text>
 
-                <text x="300" y="106" font-size="16.5" opacity=".72">Papa Luigi&#8217;s</text>
-                <text x="300" y="196" font-size="16.5" opacity=".72">Bobby Bang&#8217;s</text>
-                <text x="300" y="272" font-size="16.5" opacity=".72">Buoy</text>
+                <text x="299" y="92" font-size="15" opacity=".62">vacant</text>
+                <text x="299" y="166" font-size="15" opacity=".76">Giuseppe&#8217;s</text>
+                <text x="299" y="182" font-size="15" opacity=".76">Deli</text>
+                <text x="299" y="266" font-size="15" opacity=".76">Bobby</text>
+                <text x="299" y="282" font-size="15" opacity=".76">Bang&#8217;s</text>
+                <text x="299" y="368" font-size="16" opacity=".78">Buoy</text>
 
-                <text x="202" y="362" text-anchor="middle" font-size="18" opacity=".8">seating</text>
+                <text x="198" y="316" text-anchor="middle" font-size="16" opacity=".76">tree</text>
+                <text x="76" y="330" font-size="14.5" opacity=".72">tables &amp;</text>
+                <text x="76" y="346" font-size="14.5" opacity=".72">chairs</text>
+                <text x="150" y="392" font-size="14.5" opacity=".72">tables &amp; chairs</text>
 
-                <text x="272" y="440" text-anchor="end" font-size="17" font-weight="600">in the front entrance</text>
-                <text x="336" y="440" font-size="16" opacity=".8">you&#8217;re here</text>
+                <text x="232" y="440" text-anchor="end" font-size="16" font-weight="600">in the front entrance</text>
+                <text x="288" y="440" font-size="15" opacity=".8">you&#8217;re here</text>
                 <text x="215" y="486" text-anchor="middle" font-size="16"
                       letter-spacing="2" opacity=".6">LAVARACK RD</text>
               </g>
@@ -1107,7 +1078,7 @@ a{color:inherit}
           <b style="color:var(--foam)">Mr Spiros</b>
           <span>Handmade Yiros · Nobby Beach</span>
         </div>
-        <p style="max-width:34ch;margin:0">Back of the Village Market,<br>The Oxley 1823, 17 Lavarack Road,<br>Nobby Beach QLD</p>
+        <p style="max-width:34ch;margin:0">Back of the Atrium,<br>The Oxley 1823, 17 Lavarack Road,<br>Nobby Beach QLD</p>
       </div>
       <div class="foot-links">
         <a href="#menu">Menu</a>
